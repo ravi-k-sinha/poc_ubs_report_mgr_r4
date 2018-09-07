@@ -46,7 +46,7 @@ namespace UBS.ReportManager.Api.Controllers
         /// <param name="updatedReports">Updated information on one or more reports</param>
         /// <returns>???</returns>
         [HttpPut]
-        public async Task<IActionResult> UpdateReport([FromBody] List<IReport> updatedReports)
+        public async Task<IActionResult> UpdateReport([FromBody] List<Report> updatedReports)
         {
             return await Task.Run(() => Ok("Not Yet Implemented"));
         }
