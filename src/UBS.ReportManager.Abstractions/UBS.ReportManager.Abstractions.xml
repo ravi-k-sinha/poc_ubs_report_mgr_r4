@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UBS.ReportManager.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.TemplateCode">
+            <summary>
+            Unique code for the template that will generate this report. This template will exist in a jsreport
+            installation
+            </summary>
+        </member>
+        <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.Name">
+            <summary>
+            Name of this report
+            </summary>
+        </member>
+        <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.Description">
+            <summary>
+            A description of this report explaining the purpose
+            </summary>
+        </member>
+        <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.StorageAllowed">
+            <summary>
+            Determines whether generated report files are allowed to be stored
+            </summary>
+        </member>
+    </members>
+</doc>

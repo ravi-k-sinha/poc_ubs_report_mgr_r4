@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Unibiz\workroom\R4_PROJECTS\poc_ubs_report_mgr_r4\src\UBS.ReportManager.Abstractions\UBS.ReportManager.Abstractions.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="LendFoundry.Foundation.Persistence" Version="2.0.21" />
   </ItemGroup>

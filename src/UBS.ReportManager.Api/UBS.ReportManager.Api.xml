@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UBS.ReportManager.Api</name>
+    </assembly>
+    <members>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String)">
+            <summary>
+            Returns information on a report identified by given <code>id</code>
+            </summary>
+            <param name="id">Id of an existing report</param>
+            <returns>Report Information, an instance of <code>Report</code></returns>
+        </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.AddReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
+            <summary>
+            Adds one or more report
+            </summary>
+            <param name="newReports">New reports to be added</param>
+            <returns>???</returns>
+        </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.IReport})">
+            <summary>
+            Updates one or more reports
+            </summary>
+            <param name="updatedReports">Updated information on one or more reports</param>
+            <returns>???</returns>
+        </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GenerateReport(System.String)">
+            <summary>
+            Generates a report file using the template specified by the report identified with <code>id</code>
+            </summary>
+            <param name="id">Identifier of the report for which report file needs to be generated</param>
+            <returns>Generated report</returns>
+        </member>
+    </members>
+</doc>
