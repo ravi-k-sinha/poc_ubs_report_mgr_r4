@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBS.ReportManager.Api", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBS.ReportManager.Service", "src\UBS.ReportManager.Service\UBS.ReportManager.Service.csproj", "{9C6A26E0-E2DF-4EB2-80E8-5BD5EFFAEDE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBS.ReportManager.Persistence", "src\UBS.ReportManager.Persistence\UBS.ReportManager.Persistence.csproj", "{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{9C6A26E0-E2DF-4EB2-80E8-5BD5EFFAEDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C6A26E0-E2DF-4EB2-80E8-5BD5EFFAEDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C6A26E0-E2DF-4EB2-80E8-5BD5EFFAEDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{EBD49919-1F57-41F1-AF10-CAFCE67BB771} = {8B9DEC2C-CA38-4670-940A-8C51FE7C5EC6}
 		{76704E2D-AA74-47C7-A052-055636B8D732} = {8B9DEC2C-CA38-4670-940A-8C51FE7C5EC6}
 		{9C6A26E0-E2DF-4EB2-80E8-5BD5EFFAEDE0} = {8B9DEC2C-CA38-4670-940A-8C51FE7C5EC6}
+		{E1DD774D-5B15-493F-A7CF-E705B3F5A83E} = {8B9DEC2C-CA38-4670-940A-8C51FE7C5EC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {222D9AA5-6C35-46F8-BBA9-7995B0DA286E}
