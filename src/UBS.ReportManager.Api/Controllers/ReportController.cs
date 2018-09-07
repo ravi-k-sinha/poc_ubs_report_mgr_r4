@@ -25,6 +25,7 @@ namespace UBS.ReportManager.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetReport([FromRoute] string id)
         {
+            Logger.Info($"Received a request with id={id}");
             return await Task.Run(() => Ok("Not Yet Implemented"));
         }
         
