@@ -12,6 +12,7 @@ namespace UBS.ReportManager.Persistence
     using MongoDB.Bson.Serialization;
     using MongoDB.Bson.Serialization.Serializers;
     using MongoDB.Driver;
+    using MongoDB.Driver.Linq;
 
     public class ReportRepository : MongoRepository<IReport, Report>, IReportRepository
     {
@@ -41,12 +42,15 @@ namespace UBS.ReportManager.Persistence
         
         public async Task<IReport> GetReport(string id)
         {
-            return await Get(id);
+            // TODO Maybe use a parameter that specifies whether deleted entry needs to be included
+            return await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue))
+                .FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public Task<List<IReport>> GetAllReports(string id)
+        public async Task<List<IReport>> GetAllReports()
         {
-            throw new System.NotImplementedException();
+            var reports = await Collection.FindAsync(c => c.DeletedOn.Equals(DateTimeOffset.MinValue));
+            return reports.ToList();
         }
 
         public async Task<List<IReport>> AddReports(List<IReport> newReports)

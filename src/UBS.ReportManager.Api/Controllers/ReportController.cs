@@ -4,6 +4,7 @@ namespace UBS.ReportManager.Api.Controllers
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using Abstractions.Model.Domain;
+    using Abstractions.Model.Exception;
     using Abstractions.Service;
     using Microsoft.AspNetCore.Mvc;
     using LendFoundry.Foundation.Logging;
@@ -22,6 +23,19 @@ namespace UBS.ReportManager.Api.Controllers
             ReportService = reportService ?? throw new ArgumentException(nameof(reportService));
         }
 
+        /// <summary>
+        /// Returns all reports in the system that are active (not deleted)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetAllReports()
+        {
+            return await ExecuteAsync(
+                async () => 
+                    Ok(await ReportService.GetAllReports().ConfigureAwait(false))).ConfigureAwait(false);
+        }
+        
         /// <summary>
         /// Returns information on a report identified by given <code>id</code>
         /// </summary>
@@ -64,10 +78,32 @@ namespace UBS.ReportManager.Api.Controllers
             return await Task.Run(() => Ok("Not Yet Implemented"));
         }
         
+        /// <summary>
+        /// Soft-Deletes an existing report identified by the given code. If the report is already deleted,
+        /// then no action is taken
+        /// </summary>
+        /// <param name="id">Identifier of the report to be deleted</param>
+        /// <returns>Confirmation of delete operation</returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(204)]
         public async Task<IActionResult> DeleteReport([FromRoute] string id)
         {
-            return await Task.Run(() => Ok("Not Yet Implemented"));
+            return await ExecuteAsync(
+                async () =>
+                {
+                    try
+                    {
+                        await ReportService.DeleteReport(id).ConfigureAwait(false);
+                        return NoContent();
+                    }
+                    catch (ReportNotFoundException rnfe)
+                    {
+                        throw new NotFoundException(rnfe.Message);
+                    }
+                }
+                    
+            );
         }
 
         /// <summary>

@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LendFoundry.Configuration.Client" Version="3.0.11" />
     <PackageReference Include="LendFoundry.Foundation.Services" Version="2.0.21" />
     <PackageReference Include="LendFoundry.Security.Tokens" Version="2.1.9" />
     <PackageReference Include="LendFoundry.Security.Tokens.Abstractions" Version="2.1.9" />

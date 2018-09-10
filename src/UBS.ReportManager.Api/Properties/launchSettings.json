@@ -23,6 +23,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "REPORT-MANAGER_TENANT_URL": "http://52.38.6.196:7003",
+        "REPORT-MANAGER_CONFIGURATION_URL": "http://52.38.6.196:7001",
         "REPORT-MANAGER_MONGO_CONNECTION_STRING" : "mongodb://multi:ezirSZcslv@52.38.6.196:6000",
         "REPORT-MANAGER_MONGO_DATABASE_NAME" : "reports",
         "SWAGGER_VIRTUAL_BASEPATH_SEGMENT": "/v1/report-manager",

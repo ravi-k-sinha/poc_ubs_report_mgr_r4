@@ -11,6 +11,9 @@ namespace UBS.ReportManager.Api
         
         public static string Tenant_URL => 
             Environment.GetEnvironmentVariable($"{Prefix}_TENANT_URL") ?? "http://tenant:5000";
+        
+        public static string Configuration_URL => 
+            Environment.GetEnvironmentVariable($"{Prefix}_CONFIGURATION_URL") ?? "http://configuration:5000";
 
         public static string MongoConnectionString =>
             Environment.GetEnvironmentVariable($"{Prefix}_MONGO_CONNECTION_STRING") ?? "mongodb://localhost:27017";

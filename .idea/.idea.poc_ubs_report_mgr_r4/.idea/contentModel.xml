@@ -10,6 +10,10 @@
       <e p="src" t="Include">
         <e p="UBS.ReportManager.Abstractions" t="IncludeRecursive">
           <e p="Bin" t="ExcludeRecursive" />
+          <e p="Conf" t="Include">
+            <e p="Configuration.cs" t="Include" />
+            <e p="IConfiguration.cs" t="Include" />
+          </e>
           <e p="Model" t="Include">
             <e p="Domain" t="Include">
               <e p="IReport.cs" t="Include" />
@@ -17,6 +21,7 @@
             </e>
             <e p="Exception" t="Include">
               <e p="ReportGenerationException.cs" t="Include" />
+              <e p="ReportNotFoundException.cs" t="Include" />
               <e p="TemplateNotFoundException.cs" t="Include" />
             </e>
           </e>

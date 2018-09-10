@@ -4,6 +4,12 @@
         <name>UBS.ReportManager.Api</name>
     </assembly>
     <members>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetAllReports">
+            <summary>
+            Returns all reports in the system that are active (not deleted)
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String)">
             <summary>
             Returns information on a report identified by given <code>id</code>
@@ -24,6 +30,14 @@
             </summary>
             <param name="updatedReports">Updated information on one or more reports</param>
             <returns>???</returns>
+        </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.DeleteReport(System.String)">
+            <summary>
+            Soft-Deletes an existing report identified by the given code. If the report is already deleted,
+            then no action is taken
+            </summary>
+            <param name="id">Identifier of the report to be deleted</param>
+            <returns>Confirmation of delete operation</returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GenerateReport(System.String)">
             <summary>

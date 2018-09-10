@@ -3,8 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using Abstractions.Conf;
     using Abstractions.Repository;
     using Abstractions.Service;
+    using LendFoundry.Configuration.Client;
+    using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Persistence.Mongo;
     using LendFoundry.Security.Tokens;
@@ -12,29 +15,33 @@
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Persistence;
     using Service;
     using Swashbuckle.AspNetCore.Swagger;
     using Contact = Swashbuckle.AspNetCore.Swagger.Contact;
+    using MSIConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(MSIConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        private IConfiguration Configuration { get; }
+        private MSIConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTenantTime();
             services.AddTokenHandler();
+            
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpServiceLogging(Settings.ServiceName);
 
+            services.AddConfigurationService<Configuration>(new Uri(Settings.Configuration_URL), Settings.ServiceName);
+            
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IReportRepository, ReportRepository>();
 
