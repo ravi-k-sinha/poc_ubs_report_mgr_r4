@@ -8,4 +8,8 @@
       <ProjectReference Include="..\UBS.ReportManager.Abstractions\UBS.ReportManager.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="LendFoundry.Foundation.Persistence.Mongo" Version="2.0.21" />
+    </ItemGroup>
+
 </Project>

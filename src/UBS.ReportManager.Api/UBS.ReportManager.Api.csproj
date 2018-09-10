@@ -23,12 +23,18 @@
 
   <ItemGroup>
     <PackageReference Include="LendFoundry.Foundation.Services" Version="2.0.21" />
+    <PackageReference Include="LendFoundry.Security.Tokens" Version="2.1.9" />
+    <PackageReference Include="LendFoundry.Security.Tokens.Abstractions" Version="2.1.9" />
+    <PackageReference Include="LendFoundry.Tenant.Abstractions" Version="2.0.13" />
+    <PackageReference Include="LendFoundry.Tenant.Client" Version="2.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\UBS.ReportManager.Abstractions\UBS.ReportManager.Abstractions.csproj" />
+    <ProjectReference Include="..\UBS.ReportManager.Persistence\UBS.ReportManager.Persistence.csproj" />
+    <ProjectReference Include="..\UBS.ReportManager.Service\UBS.ReportManager.Service.csproj" />
   </ItemGroup>
 
 </Project>

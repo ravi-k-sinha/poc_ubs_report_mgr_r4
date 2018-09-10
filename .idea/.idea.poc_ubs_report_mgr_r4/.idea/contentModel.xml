@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="\app" t="IncludeRecursive" />
-    <e p="\fcec917e" t="IncludeRecursive" />
     <e p="C:\Users\RaviSinha.UNIBIZIND\.Rider2018.2\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\RaviSinha.UNIBIZIND\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\RaviSinha.UNIBIZIND\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_poc_ubs_report_mgr_r4.-414460644.00" t="ExcludeRecursive" />

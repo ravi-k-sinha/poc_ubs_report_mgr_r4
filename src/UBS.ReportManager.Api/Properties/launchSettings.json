@@ -21,7 +21,12 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "REPORT-MANAGER_TENANT_URL": "http://52.38.6.196:7003",
+        "REPORT-MANAGER_MONGO_CONNECTION_STRING" : "mongodb://multi:ezirSZcslv@52.38.6.196:6000",
+        "REPORT-MANAGER_MONGO_DATABASE_NAME" : "reports",
+        "SWAGGER_VIRTUAL_BASEPATH_SEGMENT": "/v1/report-manager",
+        "SECRET_KEY": "UzFnbjFuZz1zM2NyM3Q="
       },
       "applicationUrl": "http://localhost:60729/"
     }

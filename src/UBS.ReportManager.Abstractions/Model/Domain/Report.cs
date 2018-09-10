@@ -1,11 +1,10 @@
-using System;
-
 namespace UBS.ReportManager.Abstractions.Model.Domain
 {
-    public class Report : IReport
+    using System;
+    using LendFoundry.Foundation.Persistence;
+
+    public class Report : Aggregate, IReport
     {
-        public string TenantId { get; set; }
-        public string Id { get; set; }
         public string TemplateCode { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

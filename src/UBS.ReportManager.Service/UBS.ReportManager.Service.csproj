@@ -8,4 +8,10 @@
       <ProjectReference Include="..\UBS.ReportManager.Abstractions\UBS.ReportManager.Abstractions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="LendFoundry.Foundation.Logging, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.logging\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Logging.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

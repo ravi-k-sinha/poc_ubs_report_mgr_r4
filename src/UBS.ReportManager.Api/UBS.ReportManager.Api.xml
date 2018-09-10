@@ -18,7 +18,7 @@
             <param name="newReports">New reports to be added</param>
             <returns>???</returns>
         </member>
-        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.IReport})">
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
             <summary>
             Updates one or more reports
             </summary>

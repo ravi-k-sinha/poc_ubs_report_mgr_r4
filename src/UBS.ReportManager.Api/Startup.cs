@@ -3,13 +3,21 @@
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using Abstractions.Repository;
+    using Abstractions.Service;
     using LendFoundry.Foundation.Logging;
+    using LendFoundry.Foundation.Persistence.Mongo;
+    using LendFoundry.Security.Tokens;
+    using LendFoundry.Tenant.Client;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Persistence;
+    using Service;
     using Swashbuckle.AspNetCore.Swagger;
+    using Contact = Swashbuckle.AspNetCore.Swagger.Contact;
 
     public class Startup
     {
@@ -23,8 +31,17 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTokenHandler();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpServiceLogging(Settings.ServiceName);
+
+            services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IReportRepository, ReportRepository>();
+
+            services.AddTenantService(new Uri(Settings.Tenant_URL));
+            
+            services.AddSingleton<IMongoConfiguration>(p => new MongoConfiguration(
+                Settings.MongoConnectionString, Settings.MongoDatabaseName));
 
             services.AddMvc();
 

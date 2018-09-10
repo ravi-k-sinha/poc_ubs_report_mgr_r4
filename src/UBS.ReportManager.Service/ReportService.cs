@@ -1,20 +1,37 @@
 namespace UBS.ReportManager.Service
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
+    using Abstractions.Repository;
     using Abstractions.Service;
+    using LendFoundry.Foundation.Logging;
 
     public class ReportService : IReportService
     {
-        public Task<IReport> GetReport(string id)
+        private ILogger Logger { get; }
+        private IReportRepository ReportRepository { get; }
+
+        public ReportService(IReportRepository reportRepository, ILogger logger)
         {
-            throw new System.NotImplementedException();
+            ReportRepository = reportRepository ?? throw new ArgumentException(nameof(reportRepository));
+            Logger = logger ?? throw new ArgumentException(nameof(logger));
         }
 
-        public Task<bool> AddReports(List<Report> newReports)
+
+        public async Task<IReport> GetReport(string id)
         {
-            throw new System.NotImplementedException();
+            return await ReportRepository.GetReport(id);
+        }
+
+        public async Task<bool> AddReports(List<Report> newReports)
+        {
+            var interfaceTyped = new List<IReport>();
+            newReports.ForEach(r => interfaceTyped.Add(r));
+            
+            await ReportRepository.AddReports(interfaceTyped);
+            return true;
         }
 
         public Task<bool> UpdateReports(List<Report> updatedReports)

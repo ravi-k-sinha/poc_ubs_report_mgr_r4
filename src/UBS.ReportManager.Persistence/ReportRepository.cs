@@ -1,15 +1,47 @@
 namespace UBS.ReportManager.Persistence
 {
+    using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
     using Abstractions.Repository;
+    using LendFoundry.Foundation.Persistence.Mongo;
+    using LendFoundry.Tenant.Client;
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization;
+    using MongoDB.Bson.Serialization.Serializers;
+    using MongoDB.Driver;
 
-    public class ReportRepository : IReportRepository
+    public class ReportRepository : MongoRepository<IReport, Report>, IReportRepository
     {
-        public Task<IReport> GetReport(string id)
+        
+        static ReportRepository()
         {
-            throw new System.NotImplementedException();
+            BsonClassMap.RegisterClassMap<Report>(map =>
+            {
+                map.AutoMap();
+
+                var type = typeof(Report);
+                map.SetDiscriminator($"{type.FullName}, {type.GetTypeInfo().Assembly.GetName().Name}");
+                map.SetIsRootClass(true);
+
+                map.MapMember(m => m.CreatedOn).SetSerializer(new DateTimeOffsetSerializer(BsonType.Document));
+                map.MapMember(m => m.UpdatedOn).SetSerializer(new DateTimeOffsetSerializer(BsonType.Document));
+                map.MapMember(m => m.DeletedOn).SetSerializer(new DateTimeOffsetSerializer(BsonType.Document));
+            });
+        }
+
+        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration) : 
+            base(tenantService, mongoConfiguration, "reports")
+        {
+            CreateIndexIfNotExists("report-template-code-idx", 
+                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode), true);
+        }
+        
+        public async Task<IReport> GetReport(string id)
+        {
+            return await Get(id);
         }
 
         public Task<List<IReport>> GetAllReports(string id)
@@ -17,9 +49,18 @@ namespace UBS.ReportManager.Persistence
             throw new System.NotImplementedException();
         }
 
-        public Task<List<IReport>> AddReports(List<IReport> newReports)
+        public async Task<List<IReport>> AddReports(List<IReport> newReports)
         {
-            throw new System.NotImplementedException();
+            // TODO Find how we can find out whether duplicate is coming in the request
+            newReports.ForEach(r =>
+            {
+                r.TenantId = TenantService.Current.Id;
+                r.Id = ObjectId.GenerateNewId().ToString();
+            });
+
+            await Task.Run(() => { Collection.InsertManyAsync(newReports); });
+
+            return newReports;
         }
 
         public Task<List<IReport>> UpdateReports(List<IReport> newReports)

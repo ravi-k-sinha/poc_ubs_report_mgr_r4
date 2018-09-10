@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "4ee5211f-c910-4d4e-9606-d2720b8cf9e7",
+		"name": "POC-ReportManager",
+		"description": "Postman collection for Report Manager POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						""
+					]
+				},
+				"description": "Get an existing report information from the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Report",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
+				},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						""
+					]
+				},
+				"description": "Create a new Report"
+			},
+			"response": []
+		}
+	]
+}
