@@ -2,6 +2,7 @@ namespace UBS.ReportManager.Persistence
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq.Expressions;
     using System.Reflection;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
@@ -16,7 +17,6 @@ namespace UBS.ReportManager.Persistence
 
     public class ReportRepository : MongoRepository<IReport, Report>, IReportRepository
     {
-        
         static ReportRepository()
         {
             BsonClassMap.RegisterClassMap<Report>(map =>
@@ -33,13 +33,13 @@ namespace UBS.ReportManager.Persistence
             });
         }
 
-        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration) : 
+        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration) :
             base(tenantService, mongoConfiguration, "reports")
         {
-            CreateIndexIfNotExists("report-template-code-idx", 
+            CreateIndexIfNotExists("report-template-code-idx",
                 Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode), true);
         }
-        
+
         public async Task<IReport> GetReport(string id)
         {
             // TODO Maybe use a parameter that specifies whether deleted entry needs to be included
@@ -47,10 +47,15 @@ namespace UBS.ReportManager.Persistence
                 .FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public async Task<List<IReport>> GetAllReports()
+        public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)
         {
-            var reports = await Collection.FindAsync(c => c.DeletedOn.Equals(DateTimeOffset.MinValue));
-            return reports.ToList();
+            Expression<Func<IReport, bool>> excludeExpr = r => r.DeletedOn.Equals(DateTimeOffset.MinValue);
+
+            var returnList = includeDeleted
+                ? (await Collection.FindAsync(r => true)).ToList()
+                : (await Collection.FindAsync(excludeExpr)).ToList(); 
+            
+            return returnList;
         }
 
         public async Task<List<IReport>> AddReports(List<IReport> newReports)

@@ -29,9 +29,9 @@ namespace UBS.ReportManager.Service
             return await ReportRepository.GetReport(id);
         }
 
-        public async Task<List<IReport>> GetAllReports()
+        public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)
         {
-            return await ReportRepository.GetAllReports();
+            return await ReportRepository.GetAllReports(includeDeleted);
         }
 
         public async Task<bool> AddReports(List<Report> newReports)

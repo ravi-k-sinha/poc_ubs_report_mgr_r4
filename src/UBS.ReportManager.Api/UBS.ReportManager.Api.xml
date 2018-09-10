@@ -4,9 +4,10 @@
         <name>UBS.ReportManager.Api</name>
     </assembly>
     <members>
-        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetAllReports">
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetAllReports(System.Boolean)">
             <summary>
-            Returns all reports in the system that are active (not deleted)
+            Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted'
+            can be specified to true if deleted reports need to be included
             </summary>
             <returns></returns>
         </member>

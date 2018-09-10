@@ -24,16 +24,18 @@ namespace UBS.ReportManager.Api.Controllers
         }
 
         /// <summary>
-        /// Returns all reports in the system that are active (not deleted)
+        /// Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted'
+        /// can be specified to true if deleted reports need to be included
         /// </summary>
-        /// <returns></returns>
+        /// <param name="includeDeleted">if 'true' then all report records will be returned</param>
+        /// <returns>A list of reports</returns>
         [HttpGet]
         [Produces("application/json")]
-        public async Task<IActionResult> GetAllReports()
+        public async Task<IActionResult> GetAllReports([FromQuery] bool includeDeleted = false)
         {
             return await ExecuteAsync(
                 async () => 
-                    Ok(await ReportService.GetAllReports().ConfigureAwait(false))).ConfigureAwait(false);
+                    Ok(await ReportService.GetAllReports(includeDeleted).ConfigureAwait(false))).ConfigureAwait(false);
         }
         
         /// <summary>

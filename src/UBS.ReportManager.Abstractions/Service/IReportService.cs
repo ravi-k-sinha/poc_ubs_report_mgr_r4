@@ -7,7 +7,7 @@ namespace UBS.ReportManager.Abstractions.Service
     public interface IReportService
     {
         Task<IReport> GetReport(string id);
-        Task<List<IReport>> GetAllReports();
+        Task<List<IReport>> GetAllReports(bool includeDeleted = false);
         Task<bool> AddReports(List<Report> newReports);
         Task<bool> UpdateReports(List<Report> updatedReports);
         Task<bool> DeleteReport(string id);

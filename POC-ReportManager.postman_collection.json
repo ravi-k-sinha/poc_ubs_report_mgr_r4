@@ -43,7 +43,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
+					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
 				},
 				"url": {
 					"raw": "{{ip}}:{{report-manager-port}}/reports/",
@@ -57,6 +57,82 @@
 					]
 				},
 				"description": "Create a new Report"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a report",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/5b9646fcfe50134dc83127d9",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						"5b9646fcfe50134dc83127d9"
+					]
+				},
+				"description": "Soft-deletes an existing report which has not been deleted yet. Otherwise returns 404."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All reports (Excluding Soft-Deleted)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports"
+					]
+				},
+				"description": "Get all the reports that are not deleted"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All reports (Including Soft-Deleted)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports"
+					]
+				},
+				"description": "Get all the reports including soft-deleted ones also"
 			},
 			"response": []
 		}
