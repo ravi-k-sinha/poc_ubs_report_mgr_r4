@@ -9,7 +9,8 @@
             Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted'
             can be specified to true if deleted reports need to be included
             </summary>
-            <returns></returns>
+            <param name="includeDeleted">if 'true' then all report records will be returned</param>
+            <returns>A list of reports</returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String)">
             <summary>

@@ -9,20 +9,27 @@ namespace UBS.ReportManager.Service
     using Abstractions.Service;
     using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Logging;
+    using LendFoundry.Security.Tokens;
 
     public class ReportService : IReportService
     {
         private ILogger Logger { get; }
         private IReportRepository ReportRepository { get; }
         private ITenantTime TenantTime { get; }
+        private ITokenReader TokenReader { get; }
 
-        public ReportService(IReportRepository reportRepository, ITenantTime tenantTime, ILogger logger)
+        public ReportService(IReportRepository reportRepository, ITenantTime tenantTime,
+            ITokenReader tokenReader, ILogger logger)
         {
             ReportRepository = reportRepository ?? throw new ArgumentException(nameof(reportRepository));
             TenantTime = tenantTime ?? throw new ArgumentException(nameof(tenantTime));
+            TokenReader = tokenReader ?? throw new ArgumentException(nameof(tokenReader));
             Logger = logger ?? throw new ArgumentException(nameof(logger));
-        }
 
+            // Read the token so that we are sure that Authorization Bearer token is present & is valid
+            // Else the invocation should result in 401 being returned
+            tokenReader.Read();
+        }
 
         public async Task<IReport> GetReport(string id)
         {
@@ -38,14 +45,14 @@ namespace UBS.ReportManager.Service
         {
             var interfaceTyped = new List<IReport>();
             newReports.ForEach(r => interfaceTyped.Add(r));
-            
+
             await ReportRepository.AddReports(interfaceTyped);
             return true;
         }
 
         public Task<bool> UpdateReports(List<Report> updatedReports)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public async Task<bool> DeleteReport(string id)
@@ -64,7 +71,7 @@ namespace UBS.ReportManager.Service
 
         public Task<bool> GenerateReport(string id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

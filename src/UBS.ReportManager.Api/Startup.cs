@@ -10,6 +10,7 @@
     using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Persistence.Mongo;
+    using LendFoundry.Foundation.Services;
     using LendFoundry.Security.Tokens;
     using LendFoundry.Tenant.Client;
     using Microsoft.AspNetCore.Builder;
@@ -50,7 +51,7 @@
             services.AddSingleton<IMongoConfiguration>(p => new MongoConfiguration(
                 Settings.MongoConnectionString, Settings.MongoDatabaseName));
 
-            services.AddMvc();
+            services.AddMvc().AddLendFoundryJsonOptions();
 
             ConfigureSwashbuckleService(services);
         }
@@ -120,6 +121,8 @@
             }
 
             ConfigureSwashbuckleUse(app, env);
+            
+            app.UseErrorHandling();
             app.UseRequestLogging();
             app.UseMvc();
         }

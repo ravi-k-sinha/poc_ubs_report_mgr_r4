@@ -49,10 +49,11 @@ namespace UBS.ReportManager.Persistence
 
         public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)
         {
-            Expression<Func<IReport, bool>> excludeExpr = r => r.DeletedOn.Equals(DateTimeOffset.MinValue);
+            Expression<Func<IReport, bool>> excludeExpr = 
+                r => r.TenantId == TenantService.Current.Id && r.DeletedOn.Equals(DateTimeOffset.MinValue);
 
             var returnList = includeDeleted
-                ? (await Collection.FindAsync(r => true)).ToList()
+                ? (await Collection.FindAsync(r => r.TenantId == TenantService.Current.Id)).ToList()
                 : (await Collection.FindAsync(excludeExpr)).ToList(); 
             
             return returnList;
