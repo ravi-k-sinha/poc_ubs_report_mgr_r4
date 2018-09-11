@@ -10,17 +10,28 @@
 			"name": "Get a Report",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "{{ip}}:{{report-manager-port}}/reports/",
+					"raw": "{{ip}}:{{report-manager-port}}/reports/5b978a5bff1de41cec5a80b3?includeDeleted=false",
 					"host": [
 						"{{ip}}"
 					],
 					"port": "{{report-manager-port}}",
 					"path": [
 						"reports",
-						""
+						"5b978a5bff1de41cec5a80b3"
+					],
+					"query": [
+						{
+							"key": "includeDeleted",
+							"value": "false"
+						}
 					]
 				},
 				"description": "Get an existing report information from the database"
@@ -43,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
+					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report 1\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC002\",\r\n    \"name\": \"A Sample Test Report 2\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC004\",\r\n    \"name\": \"A Sample Test Report 4\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC005\",\r\n    \"name\": \"A Sample Test Report 5\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
 				},
 				"url": {
 					"raw": "{{ip}}:{{report-manager-port}}/reports/",
@@ -72,14 +83,14 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "{{ip}}:{{report-manager-port}}/reports/5b9646fcfe50134dc83127d9",
+					"raw": "{{ip}}:{{report-manager-port}}/reports/5b978a5bff1de41cec5a80b3",
 					"host": [
 						"{{ip}}"
 					],
 					"port": "{{report-manager-port}}",
 					"path": [
 						"reports",
-						"5b9646fcfe50134dc83127d9"
+						"5b978a5bff1de41cec5a80b3"
 					]
 				},
 				"description": "Soft-deletes an existing report which has not been deleted yet. Otherwise returns 404."
@@ -123,16 +134,49 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "{{ip}}:{{report-manager-port}}/reports",
+					"raw": "{{ip}}:{{report-manager-port}}/reports?includeDeleted=true",
 					"host": [
 						"{{ip}}"
 					],
 					"port": "{{report-manager-port}}",
 					"path": [
 						"reports"
+					],
+					"query": [
+						{
+							"key": "includeDeleted",
+							"value": "true"
+						}
 					]
 				},
 				"description": "Get all the reports including soft-deleted ones also"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/5b97ad6d6b23706888fa3d53/generated",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						"5b97ad6d6b23706888fa3d53",
+						"generated"
+					]
+				},
+				"description": "Generates a report"
 			},
 			"response": []
 		}
