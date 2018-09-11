@@ -124,10 +124,30 @@ namespace UBS.ReportManager.Api.Controllers
         /// <param name="id">Identifier of the report for which report file needs to be generated</param>
         /// <returns>Generated report</returns>
         [HttpGet("{id}/generated")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         // TODO Target format can be specified as a query parameter (PDF, HTML, etc.)
+        // TODO Support report generation for reports that ar deleted, given that all other details are valid
         public async Task<IActionResult> GenerateReport([FromRoute] string id)
         {
-            return await Task.Run(() => Ok("Not Yet Implemented"));
+            /*
+             * 1. * Get the report
+             * 2. * If error send 404, 400
+             * 3. Get the data-source endpoint
+             * 4. If endpoint is not valid, send 400
+             * 5. Use utility to invoke endpoint and get json data
+             * 6. Use jsreport client to conect to and invoke jsreport server with template code
+             * 7. Include data received from the service (Maybe a check can be there that empty data was not received)
+             * 7. Receive the PDF file from jsreport (or it probably can be any file format configured with the template)
+             * 8. Resend the PDF file to the caller
+             * 9. If storage is requested and allowed (to be done later, then store the report somewhere (S3, Mongo, etc.))
+             */
+            
+            return await ExecuteAsync(async () =>
+            {
+                var report = await ReportService.GetReport(id);
+                return Ok(report);
+            });
         }
     }
 }
