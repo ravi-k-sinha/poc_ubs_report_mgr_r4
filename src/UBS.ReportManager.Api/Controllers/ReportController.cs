@@ -65,7 +65,7 @@ namespace UBS.ReportManager.Api.Controllers
         /// will be returned with explanatory error message
         /// </summary>
         /// <param name="newReports">New reports to be added</param>
-        /// <returns>???</returns>
+        /// <returns>Returns added reports, or error message</returns>
         [HttpPost]
         [ProducesResponseType(typeof(List<IReport>), 200)]
         [ProducesResponseType(400)]
