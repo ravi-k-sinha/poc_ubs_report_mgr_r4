@@ -34,7 +34,15 @@ namespace UBS.ReportManager.Service
 
         public async Task<IReport> GetReport(string id)
         {
-            return await ReportRepository.GetReport(id);
+            try
+            {
+                return await ReportRepository.GetReport(id) ??
+                       throw new NotFoundException($"A report was not found with id={id}");
+            }
+            catch (FormatException)
+            {
+                throw new InvalidArgumentException($"The id={id} is not a valid identifier");
+            }
         }
 
         public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)
