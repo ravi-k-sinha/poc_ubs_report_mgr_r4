@@ -46,11 +46,13 @@ namespace UBS.ReportManager.Persistence
                     .Descending(r => r.DeletedOn), true);
         }
 
-        public async Task<IReport> GetReport(string id)
+        public async Task<IReport> GetReport(string id, bool includeDeleted = false)
         {
-            // TODO Maybe use a parameter that specifies whether deleted entry needs to be included
-            return await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue))
-                .FirstOrDefaultAsync(r => r.Id == id);
+            var report = includeDeleted
+                ? await Query.FirstOrDefaultAsync(r => r.Id == id)
+                : await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue)).FirstOrDefaultAsync(r => r.Id == id);
+
+            return report;
         }
 
         public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)

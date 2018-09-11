@@ -32,11 +32,11 @@ namespace UBS.ReportManager.Service
             tokenReader.Read();
         }
 
-        public async Task<IReport> GetReport(string id)
+        public async Task<IReport> GetReport(string id, bool includeDeleted = false)
         {
             try
             {
-                return await ReportRepository.GetReport(id) ??
+                return await ReportRepository.GetReport(id, includeDeleted) ??
                        throw new NotFoundException($"A report was not found with id={id}");
             }
             catch (FormatException)

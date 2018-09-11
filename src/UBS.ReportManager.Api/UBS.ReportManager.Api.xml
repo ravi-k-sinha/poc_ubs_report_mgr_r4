@@ -12,11 +12,12 @@
             <param name="includeDeleted">if 'true' then all report records will be returned</param>
             <returns>A list of reports</returns>
         </member>
-        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String)">
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String,System.Boolean)">
             <summary>
             Returns information on a report identified by given <code>id</code>
             </summary>
             <param name="id">Id of an existing report</param>
+            <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
             <returns>Report Information, an instance of <code>Report</code></returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.AddReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">

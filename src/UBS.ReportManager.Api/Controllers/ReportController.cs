@@ -37,18 +37,19 @@ namespace UBS.ReportManager.Api.Controllers
                 async () => 
                     Ok(await ReportService.GetAllReports(includeDeleted).ConfigureAwait(false))).ConfigureAwait(false);
         }
-        
+
         /// <summary>
         /// Returns information on a report identified by given <code>id</code>
         /// </summary>
         /// <param name="id">Id of an existing report</param>
+        /// <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
         /// <returns>Report Information, an instance of <code>Report</code></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetReport([FromRoute] string id)
+        public async Task<IActionResult> GetReport([FromRoute] string id, [FromQuery] bool includeDeleted = false)
         {
             return await ExecuteAsync(async () =>
             {
-                var report = await ReportService.GetReport(id);
+                var report = await ReportService.GetReport(id, includeDeleted);
                 return Ok(report);
             });
         }
