@@ -6,6 +6,7 @@ namespace UBS.ReportManager.Persistence
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
     using Abstractions.Repository;
+    using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Persistence.Mongo;
     using LendFoundry.Tenant.Client;
     using MongoDB.Bson;
@@ -16,6 +17,8 @@ namespace UBS.ReportManager.Persistence
 
     public class ReportRepository : MongoRepository<IReport, Report>, IReportRepository
     {
+        private ITenantTime TenantTime { get; }
+
         static ReportRepository()
         {
             BsonClassMap.RegisterClassMap<Report>(map =>
@@ -32,9 +35,11 @@ namespace UBS.ReportManager.Persistence
             });
         }
 
-        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration) :
+        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration, 
+            ITenantTime tenantTime) :
             base(tenantService, mongoConfiguration, "reports")
         {
+            TenantTime = tenantTime;
             CreateIndexIfNotExists("report-template-code-idx",
                 Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode), true);
         }
@@ -57,11 +62,14 @@ namespace UBS.ReportManager.Persistence
 
         public async Task<List<IReport>> AddReports(List<IReport> newReports)
         {
-            // TODO Find how we can find out whether duplicate is coming in the request
+            // TODO Find how we can find out whether duplicate is coming in the request, as any duplicate makes the
+            // whole operation batch invalid
+            
             newReports.ForEach(r =>
             {
                 r.TenantId = TenantService.Current.Id;
                 r.Id = ObjectId.GenerateNewId().ToString();
+                r.CreatedOn = TenantTime.Now;
             });
 
             await Task.Run(() => { Collection.InsertManyAsync(newReports); });

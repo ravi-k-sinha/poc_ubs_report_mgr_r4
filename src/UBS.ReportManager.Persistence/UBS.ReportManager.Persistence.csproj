@@ -12,4 +12,10 @@
       <PackageReference Include="LendFoundry.Foundation.Persistence.Mongo" Version="2.0.21" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="LendFoundry.Foundation.Date, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.date\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Date.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
