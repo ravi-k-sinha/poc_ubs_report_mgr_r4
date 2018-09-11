@@ -1,14 +1,14 @@
 namespace UBS.ReportManager.Api.Controllers
 {
     using System;
-    using System.Threading.Tasks;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Abstractions.Model.Domain;
     using Abstractions.Model.Exception;
     using Abstractions.Service;
-    using Microsoft.AspNetCore.Mvc;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Services;
+    using Microsoft.AspNetCore.Mvc;
 
     [Route("/reports")]
     public class ReportController : ExtendedController
@@ -31,6 +31,7 @@ namespace UBS.ReportManager.Api.Controllers
         /// <returns>A list of reports</returns>
         [HttpGet]
         [Produces("application/json")]
+        [ProducesResponseType(typeof(List<IReport>), 200)]
         public async Task<IActionResult> GetAllReports([FromQuery] bool includeDeleted = false)
         {
             return await ExecuteAsync(
@@ -39,12 +40,17 @@ namespace UBS.ReportManager.Api.Controllers
         }
 
         /// <summary>
-        /// Returns information on a report identified by given <code>id</code>
+        /// Returns information on a report identified by given <code>id</code>. Optionally query parameter 'includeDeleted'
+        /// can be specified to true if deleted reports need to be included
         /// </summary>
         /// <param name="id">Id of an existing report</param>
         /// <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
         /// <returns>Report Information, an instance of <code>Report</code></returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IReport), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [Produces("application/json")]
         public async Task<IActionResult> GetReport([FromRoute] string id, [FromQuery] bool includeDeleted = false)
         {
             return await ExecuteAsync(async () =>
@@ -55,11 +61,15 @@ namespace UBS.ReportManager.Api.Controllers
         }
         
         /// <summary>
-        /// Adds one or more report
+        /// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400
+        /// will be returned with explanatory error message
         /// </summary>
         /// <param name="newReports">New reports to be added</param>
         /// <returns>???</returns>
         [HttpPost]
+        [ProducesResponseType(typeof(List<IReport>), 200)]
+        [ProducesResponseType(400)]
+        [Produces("application/json")]
         public async Task<IActionResult> AddReports([FromBody] List<Report> newReports)
         {
             return await ExecuteAsync(async () =>
@@ -75,6 +85,7 @@ namespace UBS.ReportManager.Api.Controllers
         /// <param name="updatedReports">Updated information on one or more reports</param>
         /// <returns>???</returns>
         [HttpPut]
+        [Produces("application/json")]
         public async Task<IActionResult> UpdateReport([FromBody] List<Report> updatedReports)
         {
             return await Task.Run(() => Ok("Not Yet Implemented"));
