@@ -85,9 +85,40 @@ namespace UBS.ReportManager.Service
             return true;
         }
 
-        public Task<bool> GenerateReport(string id)
+        public async Task<bool> GenerateReport(string id)
         {
-            throw new NotImplementedException();
+            /*
+             * 1. * Get the report
+             * 2. * If error send 404, 400
+             * 3. * Get the data-source endpoint
+             * 4. * If endpoint is not valid, send 400
+             * 5. Use utility to invoke endpoint and get json data
+             * 6. Use jsreport client to conect to and invoke jsreport server with template code
+             * 7. Include data received from the service (Maybe a check can be there that empty data was not received)
+             * 7. Receive the PDF file from jsreport (or it probably can be any file format configured with the template)
+             * 8. Resend the PDF file to the caller
+             * 9. If storage is requested and allowed (to be done later, then store the report somewhere (S3, Mongo, etc.))
+             */
+
+            var report = await GetReport(id);
+            var dsUrl = report.DatasourceUrl;
+
+            Uri dsUri = null;
+
+            try
+            {
+                dsUri = new Uri(dsUrl);
+            }
+            catch (Exception)
+            {
+                throw new InvalidArgumentException($"Data-source url=[{dsUrl}] associated with the report is not valid");
+            }
+            
+            
+            
+            Logger.Info("Reached current end of implementation");
+
+            return false;
         }
     }
 }

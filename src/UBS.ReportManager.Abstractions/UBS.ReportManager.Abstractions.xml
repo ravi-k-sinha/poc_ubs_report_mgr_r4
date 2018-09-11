@@ -4,6 +4,12 @@
         <name>UBS.ReportManager.Abstractions</name>
     </assembly>
     <members>
+        <member name="T:UBS.ReportManager.Abstractions.Model.Domain.IReport">
+            <summary>
+            Provides information for generating a report using a template from jsreport server. Multiple reports can exist
+            for the same template code, since data-source may be different 
+            </summary>
+        </member>
         <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.TemplateCode">
             <summary>
             Unique code for the template that will generate this report. This template will exist in a jsreport
@@ -12,7 +18,7 @@
         </member>
         <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.Name">
             <summary>
-            Name of this report
+            A unique name of this report
             </summary>
         </member>
         <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.Description">
