@@ -8,6 +8,7 @@ namespace UBS.ReportManager.Abstractions.Model.Domain
         public string TemplateCode { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string DatasourceUrl { get; set; }
         public bool StorageAllowed { get; set; }
         
         public DateTimeOffset CreatedOn { get; set; }

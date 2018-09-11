@@ -20,6 +20,11 @@ namespace UBS.ReportManager.Abstractions.Model.Domain
         /// A description of this report explaining the purpose
         /// </summary>
         string Description { get; set; }
+        
+        /// <summary>
+        /// A URL which when invoked is supposed to return data in JSON format
+        /// </summary>
+        string DatasourceUrl { get; set; }
 
         /// <summary>
         /// Determines whether generated report files are allowed to be stored

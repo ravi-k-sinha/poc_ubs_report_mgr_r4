@@ -14,7 +14,8 @@
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetReport(System.String,System.Boolean)">
             <summary>
-            Returns information on a report identified by given <code>id</code>
+            Returns information on a report identified by given <code>id</code>. Optionally query parameter 'includeDeleted'
+            can be specified to true if deleted reports need to be included
             </summary>
             <param name="id">Id of an existing report</param>
             <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
@@ -22,10 +23,11 @@
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.AddReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
             <summary>
-            Adds one or more report
+            Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400
+            will be returned with explanatory error message
             </summary>
             <param name="newReports">New reports to be added</param>
-            <returns>???</returns>
+            <returns>Returns added reports, or error message</returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
             <summary>

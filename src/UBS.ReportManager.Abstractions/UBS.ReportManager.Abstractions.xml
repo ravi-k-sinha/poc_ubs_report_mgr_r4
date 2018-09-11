@@ -20,6 +20,11 @@
             A description of this report explaining the purpose
             </summary>
         </member>
+        <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.DatasourceUrl">
+            <summary>
+            A URL which when invoked is supposed to return data in JSON format
+            </summary>
+        </member>
         <member name="P:UBS.ReportManager.Abstractions.Model.Domain.IReport.StorageAllowed">
             <summary>
             Determines whether generated report files are allowed to be stored
