@@ -12,6 +12,9 @@
       <Reference Include="LendFoundry.Foundation.Logging, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.logging\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Logging.dll</HintPath>
       </Reference>
+      <Reference Include="LendFoundry.Foundation.Services, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.services\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Services.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>

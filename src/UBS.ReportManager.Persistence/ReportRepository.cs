@@ -5,6 +5,7 @@ namespace UBS.ReportManager.Persistence
     using System.Reflection;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
+    using Abstractions.Model.Exception;
     using Abstractions.Repository;
     using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Persistence.Mongo;
@@ -35,13 +36,14 @@ namespace UBS.ReportManager.Persistence
             });
         }
 
-        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration, 
+        public ReportRepository(ITenantService tenantService, IMongoConfiguration mongoConfiguration,
             ITenantTime tenantTime) :
             base(tenantService, mongoConfiguration, "reports")
         {
             TenantTime = tenantTime;
             CreateIndexIfNotExists("report-template-code-idx",
-                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode), true);
+                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode)
+                    .Descending(r => r.DeletedOn), true);
         }
 
         public async Task<IReport> GetReport(string id)
@@ -72,7 +74,17 @@ namespace UBS.ReportManager.Persistence
                 r.CreatedOn = TenantTime.Now;
             });
 
-            await Task.Run(() => { Collection.InsertManyAsync(newReports); });
+            try
+            {
+                await Task.Run(() =>
+                {
+                    Collection.InsertMany(newReports);
+                });
+            }
+            catch (MongoBulkWriteException mbwe)
+            {
+                throw new ReportStorageException(mbwe.Message);
+            }
 
             return newReports;
         }

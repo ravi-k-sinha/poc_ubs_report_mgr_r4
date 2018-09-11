@@ -62,10 +62,10 @@ namespace UBS.ReportManager.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddReports([FromBody] List<Report> newReports)
         {
-            return await Task.Run(() =>
+            return await ExecuteAsync(async () =>
             {
-                ReportService.AddReports(newReports);
-                return Ok("Not Yet Fully Implemented");
+                await ReportService.AddReports(newReports);
+                return Ok(newReports);
             });
         }
         
@@ -104,7 +104,6 @@ namespace UBS.ReportManager.Api.Controllers
                         throw new NotFoundException(rnfe.Message);
                     }
                 }
-                    
             );
         }
 

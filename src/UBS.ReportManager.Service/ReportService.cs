@@ -9,6 +9,7 @@ namespace UBS.ReportManager.Service
     using Abstractions.Service;
     using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Logging;
+    using LendFoundry.Foundation.Services;
     using LendFoundry.Security.Tokens;
 
     public class ReportService : IReportService
@@ -45,8 +46,15 @@ namespace UBS.ReportManager.Service
         {
             var interfaceTyped = new List<IReport>();
             newReports.ForEach(r => interfaceTyped.Add(r));
+            try
+            {
+                await ReportRepository.AddReports(interfaceTyped);
+            }
+            catch (ReportStorageException rse)
+            {
+                throw new InvalidArgumentException(rse.Message);
+            }
 
-            await ReportRepository.AddReports(interfaceTyped);
             return true;
         }
 
