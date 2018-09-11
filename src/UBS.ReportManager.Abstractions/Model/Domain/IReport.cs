@@ -3,6 +3,10 @@ namespace UBS.ReportManager.Abstractions.Model.Domain
     using System;
     using LendFoundry.Foundation.Persistence;
 
+    /// <summary>
+    /// Provides information for generating a report using a template from jsreport server. Multiple reports can exist
+    /// for the same template code, since data-source may be different 
+    /// </summary>
     public interface IReport : IAggregate
     {
         /// <summary>
@@ -12,7 +16,7 @@ namespace UBS.ReportManager.Abstractions.Model.Domain
         string TemplateCode { get; set; }
 
         /// <summary>
-        /// Name of this report
+        /// A unique name of this report
         /// </summary>
         string Name { get; set; }
 

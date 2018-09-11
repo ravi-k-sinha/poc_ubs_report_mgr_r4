@@ -42,8 +42,7 @@ namespace UBS.ReportManager.Persistence
         {
             TenantTime = tenantTime;
             CreateIndexIfNotExists("report-template-code-idx",
-                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.TemplateCode)
-                    .Descending(r => r.DeletedOn), true);
+                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.Name), true);
         }
 
         public async Task<IReport> GetReport(string id, bool includeDeleted = false)
