@@ -9,11 +9,14 @@ namespace UBS.ReportManager.Api
 
         private static string Prefix { get; } = ServiceName.ToUpper(CultureInfo.CurrentCulture);
         
-        public static string Tenant_URL => 
+        public static string TenantUrl => 
             Environment.GetEnvironmentVariable($"{Prefix}_TENANT_URL") ?? "http://tenant:5000";
         
-        public static string Configuration_URL => 
+        public static string ConfigurationUrl => 
             Environment.GetEnvironmentVariable($"{Prefix}_CONFIGURATION_URL") ?? "http://configuration:5000";
+
+        public static string JsReportUrl => 
+            Environment.GetEnvironmentVariable($"{Prefix}_JSREPORT_URL") ?? "http://jsreport:5488";
 
         public static string MongoConnectionString =>
             Environment.GetEnvironmentVariable($"{Prefix}_MONGO_CONNECTION_STRING") ?? "mongodb://localhost:27017";

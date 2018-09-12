@@ -126,14 +126,15 @@ namespace UBS.ReportManager.Api.Controllers
         [HttpGet("{id}/generated")]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [Produces("application/octet-stream")]
         // TODO Target format can be specified as a query parameter (PDF, HTML, etc.)
         // TODO Support report generation for reports that ar deleted, given that all other details are valid
         public async Task<IActionResult> GenerateReport([FromRoute] string id)
         {
             return await ExecuteAsync(async () =>
             {
-                var report = await ReportService.GenerateReport(id);
-                return Ok(report); // TODO Actual report needs to be returned
+                var reportStream = await ReportService.GenerateReport(id);
+                return File(reportStream, "application/octet-stream", "report.pdf");
             });
         }
     }

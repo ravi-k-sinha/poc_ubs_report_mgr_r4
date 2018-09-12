@@ -51,5 +51,10 @@
             <param name="id">Identifier of the report for which report file needs to be generated</param>
             <returns>Generated report</returns>
         </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.TestController.SampleData">
+            <summary>
+            An endpoint that returns sample data
+            </summary>
+        </member>
     </members>
 </doc>

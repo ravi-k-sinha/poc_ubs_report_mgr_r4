@@ -9,6 +9,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Reference Include="jsreport.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\jsreport.client\3.0.0-beta\lib\netstandard1.6\jsreport.Client.dll</HintPath>
+      </Reference>
+      <Reference Include="jsreport.Shared, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\jsreport.shared\2.0.0-beta\lib\netstandard1.6\jsreport.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="jsreport.Types, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\jsreport.types\2.1.0-beta\lib\netstandard1.6\jsreport.Types.dll</HintPath>
+      </Reference>
       <Reference Include="LendFoundry.Foundation.Logging, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.logging\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Logging.dll</HintPath>
       </Reference>

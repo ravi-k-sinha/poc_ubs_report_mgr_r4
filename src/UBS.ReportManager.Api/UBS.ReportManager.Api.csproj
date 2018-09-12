@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="jsreport.Client" Version="3.0.0-beta" />
     <PackageReference Include="LendFoundry.Configuration.Client" Version="3.0.11" />
     <PackageReference Include="LendFoundry.Foundation.Services" Version="2.0.21" />
     <PackageReference Include="LendFoundry.Security.Tokens" Version="2.1.9" />

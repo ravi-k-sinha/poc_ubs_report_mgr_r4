@@ -6,6 +6,8 @@
     using Abstractions.Conf;
     using Abstractions.Repository;
     using Abstractions.Service;
+    using jsreport.Client;
+    using jsreport.Shared;
     using LendFoundry.Configuration.Client;
     using LendFoundry.Foundation.Date;
     using LendFoundry.Foundation.Logging;
@@ -41,12 +43,15 @@
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpServiceLogging(Settings.ServiceName);
 
-            services.AddConfigurationService<Configuration>(new Uri(Settings.Configuration_URL), Settings.ServiceName);
+            services.AddConfigurationService<Configuration>(new Uri(Settings.ConfigurationUrl), Settings.ServiceName);
             
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IReportRepository, ReportRepository>();
+            var rs = new ReportingService(Settings.JsReportUrl);
+            services.AddSingleton<IReportingService>(sp => rs);
+            services.AddSingleton<IRenderService>(sp => rs);
 
-            services.AddTenantService(new Uri(Settings.Tenant_URL));
+            services.AddTenantService(new Uri(Settings.TenantUrl));
             
             services.AddSingleton<IMongoConfiguration>(p => new MongoConfiguration(
                 Settings.MongoConnectionString, Settings.MongoDatabaseName));

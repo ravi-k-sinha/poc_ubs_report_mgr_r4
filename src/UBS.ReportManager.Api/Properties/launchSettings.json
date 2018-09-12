@@ -26,6 +26,7 @@
         "REPORT-MANAGER_CONFIGURATION_URL": "http://52.38.6.196:7001",
         "REPORT-MANAGER_MONGO_CONNECTION_STRING" : "mongodb://multi:ezirSZcslv@52.38.6.196:6000",
         "REPORT-MANAGER_MONGO_DATABASE_NAME" : "reports",
+        "REPORT-MANAGER_JSREPORT_URL" : "http://localhost:8888",
         "SWAGGER_VIRTUAL_BASEPATH_SEGMENT": "/v1/report-manager",
         "SECRET_KEY": "UzFnbjFuZz1zM2NyM3Q="
       },
