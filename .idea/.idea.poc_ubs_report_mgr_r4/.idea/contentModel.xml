@@ -20,6 +20,7 @@
           <e p="Model" t="Include">
             <e p="Domain" t="Include">
               <e p="IReport.cs" t="Include" />
+              <e p="JsReportTemplate.cs" t="Include" />
               <e p="Report.cs" t="Include" />
             </e>
             <e p="Exception" t="Include">
