@@ -6,6 +6,7 @@ namespace UBS.ReportManager.Service
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
     using Abstractions.Model.Exception;
+    using Abstractions.Model.Operational;
     using Abstractions.Repository;
     using Abstractions.Service;
     using jsreport.Client;
@@ -94,7 +95,7 @@ namespace UBS.ReportManager.Service
             return true;
         }
 
-        public async Task<Stream> GenerateReport(string id, string reportParams)
+        public async Task<GeneratedJsReportData> GenerateReport(string id, string reportParams)
         {
             var report = await GetReport(id);
             
@@ -129,7 +130,7 @@ namespace UBS.ReportManager.Service
             Logger.Info("Reached current end of implementation");
 
             // TODO file name should be part of the model, maybe with a timestamp
-            return jsReport.Content;
+            return new GeneratedJsReportData(jsReport.Content, report.GeneratedFileName, report.GeneratedFileExtension);
         }
     }
 }
