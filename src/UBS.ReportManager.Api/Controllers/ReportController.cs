@@ -122,18 +122,18 @@ namespace UBS.ReportManager.Api.Controllers
         /// Generates a report file using the template specified by the report identified with <code>id</code>
         /// </summary>
         /// <param name="id">Identifier of the report for which report file needs to be generated</param>
+        /// <param name="reportParams">Parameters for generating the report. These will be sent to the datasource</param>
         /// <returns>Generated report</returns>
         [HttpGet("{id}/generated")]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Produces("application/octet-stream")]
         // TODO Target format can be specified as a query parameter (PDF, HTML, etc.)
         // TODO Support report generation for reports that ar deleted, given that all other details are valid
-        public async Task<IActionResult> GenerateReport([FromRoute] string id)
+        public async Task<IActionResult> GenerateReport([FromRoute] string id, [FromQuery] string reportParams)
         {
             return await ExecuteAsync(async () =>
             {
-                var reportStream = await ReportService.GenerateReport(id);
+                var reportStream = await ReportService.GenerateReport(id, reportParams);
                 return File(reportStream, "application/octet-stream", "report.pdf");
             });
         }

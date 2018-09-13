@@ -19,14 +19,16 @@ namespace UBS.ReportManager.Service
     {
         private ILogger Logger { get; }
         private IReportRepository ReportRepository { get; }
+        private IServiceProvider ServiceProvider { get; }
         private ITenantTime TenantTime { get; }
         private ITokenReader TokenReader { get; }
         private IReportingService ReportingService { get; }
         private IRenderService RenderService { get; }
 
-        public ReportService(IReportRepository reportRepository, ITenantTime tenantTime,
+        public ReportService(IServiceProvider serviceProvider, IReportRepository reportRepository, ITenantTime tenantTime,
             ITokenReader tokenReader, IReportingService reportingService, IRenderService renderService, ILogger logger)
         {
+            ServiceProvider = serviceProvider ?? throw new ArgumentException(nameof(tenantTime));
             TenantTime = tenantTime ?? throw new ArgumentException(nameof(tenantTime));
             TokenReader = tokenReader ?? throw new ArgumentException(nameof(tokenReader));
             // Read the token so that we are sure that Authorization Bearer token is present & is valid
@@ -92,25 +94,19 @@ namespace UBS.ReportManager.Service
             return true;
         }
 
-        public async Task<Stream> GenerateReport(string id)
+        public async Task<Stream> GenerateReport(string id, string reportParams)
         {
-            /*
-             * 1. * Get the report
-             * 2. * If error send 404, 400
-             * 3. * Get the data-source endpoint
-             * 4. * If endpoint is not valid, send 400
-             * 5. Use utility to invoke endpoint and get json data
-             * 6. Use jsreport client to conect to and invoke jsreport server with template code
-             * 7. Include data received from the service (Maybe a check can be there that empty data was not received)
-             * 7. Receive the PDF file from jsreport (or it probably can be any file format configured with the template)
-             * 8. Resend the PDF file to the caller
-             * 9. If storage is requested and allowed (to be done later, then store the report somewhere (S3, Mongo, etc.))
-             */
-
             var report = await GetReport(id);
+            
+            // TODO Check reportParams is not null, if input was expected
+            // TODO Check if reportParams is as per schema
+
             var dsUrl = report.DatasourceUrl;
 
-            Uri dsUri = null;
+            // TODO If dsUri is not defined, then jsreport can be directly invoked
+            // TODO Check either both dsUrl and dataSchema are present or absent
+            
+            Uri dsUri;
 
             try
             {
@@ -121,14 +117,12 @@ namespace UBS.ReportManager.Service
                 throw new InvalidArgumentException($"Data-source url=[{dsUrl}] associated with the report is not valid");
             }
 
-            var jsReport = await ReportingService.RenderByNameAsync("Sample 2", new
-            {
-                data = new
-                {
-                    key1 = "X1",
-                    key2 = "X2"
-                }
-            });
+            var reportJsonData = await ReportUtil.FetchJsonData(ServiceProvider, TokenReader, dsUri, reportParams);
+
+            // TODO Check whether reportJsonData is as per schema
+            
+            // TODO Handle exception when Reporting service is not running
+            var jsReport = await ReportingService.RenderByNameAsync("Sample 2", reportJsonData);
             
             Logger.Info("Reached current end of implementation");
 

@@ -5,6 +5,9 @@
     <e p="C:\Users\RaviSinha.UNIBIZIND\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\RaviSinha.UNIBIZIND\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_poc_ubs_report_mgr_r4.-414460644.00" t="ExcludeRecursive" />
     <e p="D:\Unibiz\workroom\R4_PROJECTS\poc_ubs_report_mgr_r4" t="IncludeFlat">
+      <e p="docs" t="Include">
+        <e p="docker-compose.yml" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="poc_ubs_report_mgr_r4.sln" t="IncludeFlat" />
       <e p="src" t="Include">
@@ -89,6 +92,7 @@
             </e>
           </e>
           <e p="ReportService.cs" t="Include" />
+          <e p="ReportUtil.cs" t="Include" />
           <e p="UBS.ReportManager.Service.csproj" t="IncludeRecursive" />
         </e>
       </e>

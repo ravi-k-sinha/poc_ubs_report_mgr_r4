@@ -13,4 +13,10 @@
     <PackageReference Include="LendFoundry.Foundation.Persistence" Version="2.0.21" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.http.abstractions\2.0.2\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

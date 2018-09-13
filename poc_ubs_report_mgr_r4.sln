@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBS.ReportManager.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBS.ReportManager.Persistence", "src\UBS.ReportManager.Persistence\UBS.ReportManager.Persistence.csproj", "{E1DD774D-5B15-493F-A7CF-E705B3F5A83E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{D9714C49-30E6-43BD-B897-E67B727CA14D}"
+ProjectSection(SolutionItems) = preProject
+	docs\docker-compose.yml = docs\docker-compose.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
