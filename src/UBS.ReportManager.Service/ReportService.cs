@@ -122,7 +122,9 @@ namespace UBS.ReportManager.Service
             // TODO Check whether reportJsonData is as per schema
             
             // TODO Handle exception when Reporting service is not running
-            var jsReport = await ReportingService.RenderByNameAsync("Sample 2", reportJsonData);
+            // TODO Handle exception when referred template is not available
+            // TODO Handle any other exception when generating the report
+            var jsReport = await ReportingService.RenderByNameAsync(report.JsReportTemplate.Name, reportJsonData);
             
             Logger.Info("Reached current end of implementation");
 
