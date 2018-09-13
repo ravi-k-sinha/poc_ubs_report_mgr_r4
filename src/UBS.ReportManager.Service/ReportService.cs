@@ -42,17 +42,10 @@ namespace UBS.ReportManager.Service
             Logger = logger ?? throw new ArgumentException(nameof(logger));
         }
 
-        public async Task<IReport> GetReport(string id, bool includeDeleted = false)
+        public async Task<IReport> GetReport(string idOrCode, bool includeDeleted = false)
         {
-            try
-            {
-                return await ReportRepository.GetReport(id, includeDeleted) ??
-                       throw new NotFoundException($"A report was not found with id={id}");
-            }
-            catch (FormatException)
-            {
-                throw new InvalidArgumentException($"The id={id} is not a valid identifier");
-            }
+            return await ReportRepository.GetReport(idOrCode, includeDeleted) ??
+                   throw new NotFoundException($"A report was not found with id/code={idOrCode}");
         }
 
         public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)

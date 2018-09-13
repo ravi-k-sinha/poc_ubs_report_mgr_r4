@@ -43,19 +43,18 @@ namespace UBS.ReportManager.Api.Controllers
         /// Returns information on a report identified by given <code>id</code>. Optionally query parameter 'includeDeleted'
         /// can be specified to true if deleted reports need to be included
         /// </summary>
-        /// <param name="id">Id of an existing report</param>
+        /// <param name="idOrCode">Id or code of an existing report</param>
         /// <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
         /// <returns>Report Information, an instance of <code>Report</code></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{idOrCode}")]
         [ProducesResponseType(typeof(IReport), 200)]
-        [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Produces("application/json")]
-        public async Task<IActionResult> GetReport([FromRoute] string id, [FromQuery] bool includeDeleted = false)
+        public async Task<IActionResult> GetReport([FromRoute] string idOrCode, [FromQuery] bool includeDeleted = false)
         {
             return await ExecuteAsync(async () =>
             {
-                var report = await ReportService.GetReport(id, includeDeleted);
+                var report = await ReportService.GetReport(idOrCode, includeDeleted);
                 return Ok(report);
             });
         }
@@ -119,20 +118,20 @@ namespace UBS.ReportManager.Api.Controllers
         }
 
         /// <summary>
-        /// Generates a report file using the template specified by the report identified with <code>id</code>
+        /// Generates a report file using the information on template provided by the report identified with <code>id</code>
         /// </summary>
-        /// <param name="id">Identifier of the report for which report file needs to be generated</param>
+        /// <param name="idOrCode">Identifier of the report for which report file needs to be generated</param>
         /// <param name="reportParams">Parameters for generating the report. These will be sent to the datasource</param>
         /// <returns>Generated report</returns>
-        [HttpGet("{id}/generated")]
+        [HttpGet("{idOrCode}/generated")]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         // TODO Support report generation for reports that ar deleted, given that all other details are valid
-        public async Task<IActionResult> GenerateReport([FromRoute] string id, [FromQuery] string reportParams)
+        public async Task<IActionResult> GenerateReport([FromRoute] string idOrCode, [FromQuery] string reportParams)
         {
             return await ExecuteAsync(async () =>
             {
-                var reportData = await ReportService.GenerateReport(id, reportParams);
+                var reportData = await ReportService.GenerateReport(idOrCode, reportParams);
                 return File(reportData.Content, "application/octet-stream", 
                     $"{reportData.Name}.{reportData.Extension}");
             });

@@ -41,16 +41,32 @@ namespace UBS.ReportManager.Persistence
             base(tenantService, mongoConfiguration, "reports")
         {
             TenantTime = tenantTime;
-            CreateIndexIfNotExists("report-template-code-idx",
+            CreateIndexIfNotExists("report-name-idx",
                 Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.Name), true);
+            CreateIndexIfNotExists("report-code-idx",
+                Builders<IReport>.IndexKeys.Ascending(r => r.TenantId).Ascending(r => r.Code), true);
         }
 
-        public async Task<IReport> GetReport(string id, bool includeDeleted = false)
+        public async Task<IReport> GetReport(string idOrCode, bool includeDeleted = false)
         {
-            var report = includeDeleted
-                ? await Query.FirstOrDefaultAsync(r => r.Id == id)
-                : await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue)).FirstOrDefaultAsync(r => r.Id == id);
-
+            var validId = ObjectId.TryParse(idOrCode, out var sample);
+            IReport report;
+            
+            if (validId)
+            {
+                report = includeDeleted
+                    ? await Query.FirstOrDefaultAsync(r => r.Id == idOrCode)
+                    : await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue))
+                        .FirstOrDefaultAsync(r => r.Id == idOrCode);    
+            }
+            else
+            {
+                report = includeDeleted
+                    ? await Query.FirstOrDefaultAsync(r => r.Code == idOrCode)
+                    : await Query.Where(r => r.DeletedOn.Equals(DateTimeOffset.MinValue))
+                        .FirstOrDefaultAsync(r => r.Code == idOrCode);
+            }
+            
             return report;
         }
 

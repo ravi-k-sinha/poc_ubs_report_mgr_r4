@@ -17,7 +17,7 @@
             Returns information on a report identified by given <code>id</code>. Optionally query parameter 'includeDeleted'
             can be specified to true if deleted reports need to be included
             </summary>
-            <param name="id">Id of an existing report</param>
+            <param name="idOrCode">Id of an existing report</param>
             <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
             <returns>Report Information, an instance of <code>Report</code></returns>
         </member>
@@ -46,9 +46,9 @@
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GenerateReport(System.String,System.String)">
             <summary>
-            Generates a report file using the template specified by the report identified with <code>id</code>
+            Generates a report file using the information on template provided by the report identified with <code>id</code>
             </summary>
-            <param name="id">Identifier of the report for which report file needs to be generated</param>
+            <param name="idOrCode">Identifier of the report for which report file needs to be generated</param>
             <param name="reportParams">Parameters for generating the report. These will be sent to the datasource</param>
             <returns>Generated report</returns>
         </member>

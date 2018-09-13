@@ -7,7 +7,7 @@ namespace UBS.ReportManager.Abstractions.Repository
 
     public interface IReportRepository : IRepository<IReport>
     {
-        Task<IReport> GetReport(string id, bool includeDeleted = false);
+        Task<IReport> GetReport(string idOrCode, bool includeDeleted = false);
         Task<List<IReport>> GetAllReports(bool includeDeleted = false);
         
         Task<List<IReport>> AddReports(List<IReport> newReports);
