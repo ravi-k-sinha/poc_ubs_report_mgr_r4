@@ -54,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report 1\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC002\",\r\n    \"name\": \"A Sample Test Report 2\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC004\",\r\n    \"name\": \"A Sample Test Report 4\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC005\",\r\n    \"name\": \"A Sample Test Report 5\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/sample-report\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
+					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report 1\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC002\",\r\n    \"name\": \"A Sample Test Report 2\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC004\",\r\n    \"name\": \"A Sample Test Report 4\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC005\",\r\n    \"name\": \"A Sample Test Report 5\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
 				},
 				"url": {
 					"raw": "{{ip}}:{{report-manager-port}}/reports/",
@@ -165,18 +165,94 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "{{ip}}:{{report-manager-port}}/reports/5b97ad6d6b23706888fa3d53/generated",
+					"raw": "{{ip}}:{{report-manager-port}}/reports/5b9a074296e3cb6aecae19ee/generated?reportParams={\"sample-id\" : { \"sub-id\" : \"sub-val2\"}}&someData=boom",
 					"host": [
 						"{{ip}}"
 					],
 					"port": "{{report-manager-port}}",
 					"path": [
 						"reports",
-						"5b97ad6d6b23706888fa3d53",
+						"5b9a074296e3cb6aecae19ee",
 						"generated"
+					],
+					"query": [
+						{
+							"key": "reportParams",
+							"value": "{\"sample-id\" : { \"sub-id\" : \"sub-val2\"}}"
+						},
+						{
+							"key": "someData",
+							"value": "boom"
+						}
 					]
 				},
 				"description": "Generates a report"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate report (by HTTP POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"template\": { \"shortid\" : \"S146DmpPQ\"  },\r\n      \"data\" : { \r\n    \t\"data\" : {\r\n    \t\t\"key1\" : \"k1\",\r\n    \t\t\"key2\" : \"k2\"\r\n    \t}\r\n      },\r\n      \"options\": { \"timeout\": 60000 }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"report"
+					]
+				},
+				"description": "Generate report by POSTing the request to jserport server with sample data"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sample Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/test/sample-data?reportParams={\"sample-id\" : { \"sub-id\" : \"sub-value\"}}&someData=boom",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"test",
+						"sample-data"
+					],
+					"query": [
+						{
+							"key": "reportParams",
+							"value": "{\"sample-id\" : { \"sub-id\" : \"sub-value\"}}"
+						},
+						{
+							"key": "someData",
+							"value": "boom"
+						}
+					]
+				},
+				"description": "Test that sample data is being returned"
 			},
 			"response": []
 		}
