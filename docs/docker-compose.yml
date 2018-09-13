@@ -1,0 +1,14 @@
+version: '3'
+services:
+        jsreport:
+                image: "jsreport/jsreport:latest-full"
+                ports: 
+                 - "8888:5488"
+                volumes:
+                 - D:/Unibiz/workroom/jsreport-data/:/jsreport
+                environment:
+                   - store_provider=mongodb
+                   - extensions_mongodb-store_uri=mongodb://192.168.7.118:27017/jsreportdb
+
+
+
