@@ -1,13 +1,19 @@
 namespace UBS.ReportManager.Api.Controllers
 {
     using System;
+    using System.Globalization;
+    using System.Reflection;
     using System.Threading.Tasks;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Services;
     using LendFoundry.Security.Tokens;
     using Microsoft.AspNetCore.Mvc;
+    using MongoDB.Bson.IO;
+    using Newtonsoft.Json.Linq;
+    using Newtonsoft.Json.Serialization;
+    using JsonConvert = Newtonsoft.Json.JsonConvert;
 
-    [Route("/sample")]
+    [Route("/test")]
     public class TestController  : ExtendedController
     {
         private ITokenReader TokenReader { get; }
@@ -20,17 +26,26 @@ namespace UBS.ReportManager.Api.Controllers
         /// <summary>
         /// A sample endpoint that returns sample data
         /// </summary>
-        [HttpGet]
+        [HttpGet("sample-data")]
         [Produces("application/json")]
-        public async Task<IActionResult> SampleData()
+        public async Task<IActionResult> SampleData([FromQuery] string reportParams)
         {
             TokenReader.Read(); // Try to read the token, it will raise 401, if token is not present on invalid
+            Logger.Debug($"Report data received is [{reportParams}]");
+
+            var subValue = "INVALID";
+            
+            if (reportParams != null)
+            {
+                subValue = JObject.Parse(reportParams)["sample-id"]["sub-id"].ToString();
+            }
+            
             return await ExecuteAsync(
                 async () => 
                     Ok(await Task.Run(() => new {data = new
                     {
-                        key1 = "Value1",
-                        key2 = DateTime.Now
+                        key1 = subValue,
+                        key2 = DateTime.Now.ToString(CultureInfo.InvariantCulture)
                     }})));
         }
     }
