@@ -97,7 +97,7 @@ namespace UBS.ReportManager.Persistence
             }
             catch (MongoBulkWriteException mbwe)
             {
-                throw new ReportStorageException(mbwe.Message);
+                throw new ReportCreationException(mbwe.Message);
             }
 
             return newReports;

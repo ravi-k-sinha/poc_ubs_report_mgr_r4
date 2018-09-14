@@ -2,6 +2,9 @@ namespace UBS.ReportManager.Abstractions.Model.Operational
 {
     using System.IO;
 
+    /// <summary>
+    /// This value class is used for gathering important data about a generated JS report
+    /// </summary>
     public class GeneratedJsReportData
     {
         public Stream Content { get;}

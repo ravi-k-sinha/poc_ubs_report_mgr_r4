@@ -63,7 +63,7 @@ namespace UBS.ReportManager.Service
             {
                 await ReportRepository.AddReports(interfaceTyped);
             }
-            catch (ReportStorageException rse)
+            catch (ReportCreationException rse)
             {
                 throw new InvalidArgumentException(rse.Message);
             }
