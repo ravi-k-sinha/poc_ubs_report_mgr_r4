@@ -24,8 +24,8 @@
               <e p="Report.cs" t="Include" />
             </e>
             <e p="Exception" t="Include">
+              <e p="ReportCreationException.cs" t="Include" />
               <e p="ReportNotFoundException.cs" t="Include" />
-              <e p="ReportStorageException.cs" t="Include" />
             </e>
             <e p="Operational" t="Include">
               <e p="GeneratedJsReportData.cs" t="Include" />
