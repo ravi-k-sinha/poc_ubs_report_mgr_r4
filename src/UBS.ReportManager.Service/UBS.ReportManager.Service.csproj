@@ -28,6 +28,7 @@
 
     <ItemGroup>
       <PackageReference Include="LendFoundry.Foundation.Date" Version="2.0.21" />
+      <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.10" />
     </ItemGroup>
 
 </Project>

@@ -37,7 +37,7 @@ namespace UBS.ReportManager.Api.Controllers
             
             if (reportParams != null)
             {
-                subValue = JObject.Parse(reportParams)["sample-id"]["sub-id"].ToString();
+                subValue = JObject.Parse(reportParams)["sampleId"]["subId"].ToString();
             }
             
             return await ExecuteAsync(

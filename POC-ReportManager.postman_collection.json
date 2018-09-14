@@ -54,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"templateCode\": \"TC001\",\r\n    \"name\": \"A Sample Test Report 1\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC002\",\r\n    \"name\": \"A Sample Test Report 2\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC003\",\r\n    \"name\": \"A Sample Test Report 3\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC004\",\r\n    \"name\": \"A Sample Test Report 4\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  },\r\n  {\r\n    \"templateCode\": \"TC005\",\r\n    \"name\": \"A Sample Test Report 5\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true\r\n  }\r\n]"
+					"raw": "[\r\n  {\r\n    \"code\": \"RPT001\",\r\n    \"name\": \"A sample report 1\",\r\n    \"purpose\": \"Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"sampleId\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"subId\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"subId\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"sampleId\\\"\r\n\t  ]\r\n\t}\",\r\n    \"dataJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"data\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"key1\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        },\r\n\t        \\\"key2\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"key1\\\", \r\n\t        \\\"key2\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"data\\\"\r\n\t  ]\r\n\t}\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report1\",\r\n    \"generatedFileExtension\": \"PDF\",\r\n    \"active\": true\r\n  },\r\n  {\r\n    \"code\": \"RPT002\",\r\n    \"name\": \"A sample report 2\",\r\n    \"purpose\": \"Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"TODO\",\r\n    \"dataJsonSchema\": \"TODO\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report2\",\r\n    \"generatedFileExtension\": \"pdf\",\r\n    \"active\": true\r\n  }\r\n]"
 				},
 				"url": {
 					"raw": "{{ip}}:{{report-manager-port}}/reports/",
@@ -165,28 +165,28 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "{{ip}}:{{report-manager-port}}/reports/5b9a074296e3cb6aecae19ee/generated?reportParams={\"sample-id\" : { \"sub-id\" : \"sub-val2\"}}&someData=boom",
+					"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001/generated?reportParams={\"sampleId\" : { \"subId\" : \"Hello2\"}}&someData=Sampledata",
 					"host": [
 						"{{ip}}"
 					],
 					"port": "{{report-manager-port}}",
 					"path": [
 						"reports",
-						"5b9a074296e3cb6aecae19ee",
+						"RPT001",
 						"generated"
 					],
 					"query": [
 						{
 							"key": "reportParams",
-							"value": "{\"sample-id\" : { \"sub-id\" : \"sub-val2\"}}"
+							"value": "{\"sampleId\" : { \"subId\" : \"Hello2\"}}"
 						},
 						{
 							"key": "someData",
-							"value": "boom"
+							"value": "Sampledata"
 						}
 					]
 				},
-				"description": "Generates a report"
+				"description": "Generates a report\n\nIn Browser (with Authorization header enabled by some plugin), the escaped URL is \nhttp://localhost:60729/reports/5b9a46abfe2c685224f46c1b/generated?reportParams={%22sample-id%22%20:%20{%20%22sub-id%22%20:%20%22sub-val2%22}}&someData=boom"
 			},
 			"response": []
 		},

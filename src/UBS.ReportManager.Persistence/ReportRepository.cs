@@ -81,9 +81,6 @@ namespace UBS.ReportManager.Persistence
 
         public async Task<List<IReport>> AddReports(List<IReport> newReports)
         {
-            // TODO Find how we can find out whether duplicate is coming in the request, as any duplicate makes the
-            // whole operation batch invalid
-            
             newReports.ForEach(r =>
             {
                 r.TenantId = TenantService.Current.Id;

@@ -2,7 +2,8 @@ namespace UBS.ReportManager.Service
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
+    using System.Net.Http;
+    using System.Text;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
     using Abstractions.Model.Exception;
@@ -26,8 +27,9 @@ namespace UBS.ReportManager.Service
         private IReportingService ReportingService { get; }
         private IRenderService RenderService { get; }
 
-        public ReportService(IServiceProvider serviceProvider, IReportRepository reportRepository, ITenantTime tenantTime,
-            ITokenReader tokenReader, IReportingService reportingService, IRenderService renderService, ILogger logger)
+        public ReportService(IServiceProvider serviceProvider, IReportRepository reportRepository,
+            ITenantTime tenantTime, ITokenReader tokenReader, IReportingService reportingService, 
+            IRenderService renderService, ILogger logger)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentException(nameof(tenantTime));
             TenantTime = tenantTime ?? throw new ArgumentException(nameof(tenantTime));
@@ -35,7 +37,7 @@ namespace UBS.ReportManager.Service
             // Read the token so that we are sure that Authorization Bearer token is present & is valid
             // Else the invocation should result in 401 being returned
             tokenReader.Read();
-            
+
             ReportRepository = reportRepository ?? throw new ArgumentException(nameof(reportRepository));
             ReportingService = reportingService ?? throw new ArgumentException(nameof(reportingService));
             RenderService = renderService ?? throw new ArgumentException(nameof(renderService));
@@ -91,15 +93,22 @@ namespace UBS.ReportManager.Service
         public async Task<GeneratedJsReportData> GenerateReport(string id, string reportParams)
         {
             var report = await GetReport(id);
-            
-            // TODO Check reportParams is not null, if input was expected
-            // TODO Check if reportParams is as per schema
+
+            if (!string.IsNullOrWhiteSpace(report.InputJsonSchema)
+                && !ReportUtil.ValidAsPerSchema(reportParams, report.InputJsonSchema, out var errors))
+            {
+                var sb = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    sb.Append(error); 
+                    sb.Append(',');
+                }
+                
+                throw new InvalidArgumentException($"Input params are missing or invalid. Errors=[{sb}]");
+            }
 
             var dsUrl = report.DatasourceUrl;
 
-            // TODO If dsUri is not defined, then jsreport can be directly invoked
-            // TODO Check either both dsUrl and dataSchema are present or absent
-            
             Uri dsUri;
 
             try
@@ -108,21 +117,51 @@ namespace UBS.ReportManager.Service
             }
             catch (Exception)
             {
-                throw new InvalidArgumentException($"Data-source url=[{dsUrl}] associated with the report is not valid");
+                throw new InvalidArgumentException(
+                    $"Data-source url=[{dsUrl}] associated with the report is not valid");
             }
 
-            var reportJsonData = await ReportUtil.FetchJsonData(ServiceProvider, TokenReader, dsUri, reportParams);
-
-            // TODO Check whether reportJsonData is as per schema
+            string reportJsonData;
             
-            // TODO Handle exception when Reporting service is not running
-            // TODO Handle exception when referred template is not available
-            // TODO Handle any other exception when generating the report
-            var jsReport = await ReportingService.RenderByNameAsync(report.JsReportTemplate.Name, reportJsonData);
-            
-            Logger.Info("Reached current end of implementation");
+            try
+            {
+                reportJsonData = await ReportUtil.FetchJsonData(ServiceProvider, TokenReader, dsUri, reportParams);
+            }
+            catch (Exception e)
+            {
+                // TODO Change this to throw 500, when the framework can support sending specific messages with 500 code.
+                // Currently the default 'We couldn't process your request' is sent
+                throw new InvalidArgumentException($"Could not fetch report data from data-source=[{dsUrl}]. " +
+                                                   $"Data-source exception message is [{e.Message}]", e);
+            }
 
-            // TODO file name should be part of the model, maybe with a timestamp
+            if (!string.IsNullOrWhiteSpace(report.DataJsonSchema)
+                && !ReportUtil.ValidAsPerSchema(reportJsonData, report.DataJsonSchema, out var errors2))
+            {
+                var sb = new StringBuilder();
+                foreach (var error in errors2)
+                {
+                    sb.Append(error); 
+                    sb.Append(',');
+                }
+
+                throw new InvalidArgumentException($"Report data was not received or invalid. Errors=[{sb}]");
+            }
+
+            jsreport.Types.Report jsReport = null;
+            try
+            {
+                jsReport = await ReportingService.RenderAsync(report.JsReportTemplate.Code, reportJsonData);
+            }
+            catch (HttpRequestException hre)
+            {
+                throw new InvalidArgumentException($"Cannot connect to JSReport server. Error=[{hre.Message}]", hre);
+            }
+            catch (JsReportException jre)
+            {
+                throw new InvalidArgumentException($"JsReport server could not generate the report. Error=[{jre.Message}]", jre);
+            }
+
             return new GeneratedJsReportData(jsReport.Content, report.GeneratedFileName, report.GeneratedFileExtension);
         }
     }
