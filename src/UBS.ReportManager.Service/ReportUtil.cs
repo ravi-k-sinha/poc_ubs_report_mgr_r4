@@ -8,7 +8,7 @@ namespace UBS.ReportManager.Service
 
     public static class ReportUtil
     {
-        private const string QUERY_PARAM_NAME = "reportParams";
+        private const string QueryParamName = "reportParams";
 
         /// <summary>
         /// Invokes the datasource endpoint reads the resulting Json data sent
@@ -16,7 +16,7 @@ namespace UBS.ReportManager.Service
         /// <param name="serviceProvider">Used to obtain a service-client</param>
         /// <param name="tokenReader">Used for creating a service-client</param>
         /// <param name="dsUri">URI of endpoint which can be invoked to fetch data</param>
-        /// <param name="reportParams"></param>
+        /// <param name="reportParams">Parameters sent to the endpoint for fetching report data</param>
         /// <returns>Json data received after invoking data-source URI</returns>
         public static async Task<string> FetchJsonData(IServiceProvider serviceProvider, ITokenReader tokenReader,
             Uri dsUri, string reportParams)
@@ -25,8 +25,8 @@ namespace UBS.ReportManager.Service
             var sClient = serviceProvider.GetServiceClient(tokenReader, baseUri);
      
             var request = new RestRequest(baseUri.MakeRelativeUri(dsUri));
-
-            request.AddQueryParameter(QUERY_PARAM_NAME, reportParams);
+            
+            request.AddQueryParameter(QueryParamName, reportParams);
 
             var reportJsonData = await sClient.ExecuteAsync<object>(request) ?? "{}";
             // TODO if result is null, then convert it to empty document, and use for validation with the schema
