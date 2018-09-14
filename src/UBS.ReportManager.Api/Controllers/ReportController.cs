@@ -85,13 +85,41 @@ namespace UBS.ReportManager.Api.Controllers
         /// <returns>???</returns>
         [HttpPut]
         [Produces("application/json")]
-        public async Task<IActionResult> UpdateReport([FromBody] List<Report> updatedReports)
+        public async Task<IActionResult> UpdateReports([FromBody] List<Report> updatedReports)
         {
             return await Task.Run(() => Ok("Not Yet Implemented"));
         }
+
+        /// <summary>
+        /// Sets the active status of an existing report identified by the given identifier. If active status of a report
+        /// is same as the specified, the report's UpdatedOn is updated
+        /// </summary>
+        /// <param name="idOrCode">Identifier of the report to be deleted</param>
+        /// <param name="activeStatus">if 'true' marks active status to true, else false</param>
+        /// <returns>Confirmation of update operation on active status</returns>
+        [HttpPatch("{idOrCode}/active/{activeStatus}")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(204)]
+        public async Task<IActionResult> SetReportActiveStatus([FromRoute] string idOrCode, bool activeStatus)
+        {
+            return await ExecuteAsync(
+                async () =>
+                {
+                    try
+                    {
+                        await ReportService.SetReportActiveStatus(idOrCode, activeStatus).ConfigureAwait(false);
+                        return NoContent();
+                    }
+                    catch (ReportNotFoundException rnfe)
+                    {
+                        throw new NotFoundException(rnfe.Message);
+                    }
+                }
+            );
+        }
         
         /// <summary>
-        /// Soft-Deletes an existing report identified by the given code. If the report is already deleted,
+        /// Soft-Deletes an existing report identified by the given identifier. If the report is already deleted,
         /// then no action is taken
         /// </summary>
         /// <param name="id">Identifier of the report to be deleted</param>

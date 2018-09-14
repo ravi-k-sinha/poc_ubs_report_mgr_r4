@@ -33,6 +33,7 @@ namespace UBS.ReportManager.Service
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentException(nameof(tenantTime));
             TenantTime = tenantTime ?? throw new ArgumentException(nameof(tenantTime));
+            
             TokenReader = tokenReader ?? throw new ArgumentException(nameof(tokenReader));
             // Read the token so that we are sure that Authorization Bearer token is present & is valid
             // Else the invocation should result in 401 being returned
@@ -47,7 +48,7 @@ namespace UBS.ReportManager.Service
         public async Task<IReport> GetReport(string idOrCode, bool includeDeleted = false)
         {
             return await ReportRepository.GetReport(idOrCode, includeDeleted) ??
-                   throw new NotFoundException($"A report was not found with id/code={idOrCode}");
+                   throw new NotFoundException(ReportUtil.GetNotFoundExMsgForIdOrCode(idOrCode));
         }
 
         public async Task<List<IReport>> GetAllReports(bool includeDeleted = false)
@@ -76,16 +77,24 @@ namespace UBS.ReportManager.Service
             throw new NotImplementedException();
         }
 
-        public async Task<bool> DeleteReport(string id)
+        public async Task<bool> SetReportActiveStatus(string idOrCode, bool activeStatus)
         {
-            var report = await ReportRepository.GetReport(id);
+            var report = await ReportRepository.GetReport(idOrCode) ??
+                throw new ReportNotFoundException(ReportUtil.GetNotFoundExMsgForIdOrCode(idOrCode));
 
-            if (report == null)
-            {
-                throw new ReportNotFoundException($"A report was not found with id={id}");
-            }
+            report.Active = activeStatus;
+            report.UpdatedOn = TenantTime.Now;
+            ReportRepository.Update(report);
+            return true;
+        }
+
+        public async Task<bool> DeleteReport(string idOrCode)
+        {
+            var report = await ReportRepository.GetReport(idOrCode) ??
+                throw new ReportNotFoundException(ReportUtil.GetNotFoundExMsgForIdOrCode(idOrCode));
 
             report.DeletedOn = TenantTime.Now;
+            report.UpdatedOn = TenantTime.Now;
             ReportRepository.Update(report);
             return true;
         }

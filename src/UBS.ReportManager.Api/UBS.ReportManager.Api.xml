@@ -36,6 +36,15 @@
             <param name="updatedReports">Updated information on one or more reports</param>
             <returns>???</returns>
         </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.SetReportActiveStatus(System.String,System.Boolean)">
+            <summary>
+            Soft-Deletes an existing report identified by the given code. If the report is already deleted,
+            then no action is taken
+            </summary>
+            <param name="id">Identifier of the report to be deleted</param>
+            <param name="activeStatus">if 'true' marks active status to true, else false</param>
+            <returns>Confirmation of delete operation</returns>
+        </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.DeleteReport(System.String)">
             <summary>
             Soft-Deletes an existing report identified by the given code. If the report is already deleted,

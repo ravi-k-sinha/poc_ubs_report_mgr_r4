@@ -11,7 +11,8 @@ namespace UBS.ReportManager.Abstractions.Service
         Task<List<IReport>> GetAllReports(bool includeDeleted = false);
         Task<bool> AddReports(List<Report> newReports);
         Task<bool> UpdateReports(List<Report> updatedReports);
-        Task<bool> DeleteReport(string id);
+        Task<bool> SetReportActiveStatus(string idOrCode, bool activeStatus);
+        Task<bool> DeleteReport(string idOrCode);
         Task<GeneratedJsReportData> GenerateReport(string id, string reportParams);
     }
 }

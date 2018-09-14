@@ -85,5 +85,15 @@ namespace UBS.ReportManager.Service
                 return false;
             }
         }
+
+        /// <summary>
+        /// Generates a message to be used for ReportNotFoundException when the input could be either id or code of a report
+        /// </summary>
+        /// <param name="idOrCode"></param>
+        /// <returns></returns>
+        public static string GetNotFoundExMsgForIdOrCode(string idOrCode)
+        {
+            return $"A report was not found with id/code={idOrCode}";
+        }
     }
 }
