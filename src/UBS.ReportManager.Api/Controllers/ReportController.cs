@@ -3,14 +3,17 @@ namespace UBS.ReportManager.Api.Controllers
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Abstractions.Model.Communication;
     using Abstractions.Model.Domain;
     using Abstractions.Model.Exception;
     using Abstractions.Service;
+    using Attributes;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Services;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("/reports")]
+    [ValidateModel]
     public class ReportController : ExtendedController
     {
         private IReportService ReportService { get; }
@@ -58,23 +61,24 @@ namespace UBS.ReportManager.Api.Controllers
                 return Ok(report);
             });
         }
-        
+
         /// <summary>
         /// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400
         /// will be returned with explanatory error message
         /// </summary>
-        /// <param name="newReports">New reports to be added</param>
+        /// <param name="creationRequests">Requests for addition of reports</param>
         /// <returns>Returns added reports, or error message</returns>
         [HttpPost]
-        [ProducesResponseType(typeof(List<IReport>), 200)]
+        [ProducesResponseType(typeof(List<ReportCreationResponse>), 200)]
         [ProducesResponseType(400)]
         [Produces("application/json")]
-        public async Task<IActionResult> AddReports([FromBody] List<Report> newReports)
+        public async Task<IActionResult> AddReports([FromBody] List<ReportCreationRequest> creationRequests)
         {
             return await ExecuteAsync(async () =>
             {
+                var newReports = ReportCreationRequest.ToReportList(creationRequests);
                 await ReportService.AddReports(newReports);
-                return Ok(newReports);
+                return Ok(ReportCreationResponse.FromCreatedReports(newReports));
             });
         }
         

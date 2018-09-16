@@ -54,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"code\": \"RPT001\",\r\n    \"name\": \"A sample report 1\",\r\n    \"purpose\": \"Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"sampleId\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"subId\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"subId\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"sampleId\\\"\r\n\t  ]\r\n\t}\",\r\n    \"dataJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"data\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"key1\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        },\r\n\t        \\\"key2\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"key1\\\", \r\n\t        \\\"key2\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"data\\\"\r\n\t  ]\r\n\t}\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report1\",\r\n    \"generatedFileExtension\": \"PDF\",\r\n    \"active\": true\r\n  },\r\n  {\r\n    \"code\": \"RPT002\",\r\n    \"name\": \"A sample report 2\",\r\n    \"purpose\": \"Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"TODO\",\r\n    \"dataJsonSchema\": \"TODO\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report2\",\r\n    \"generatedFileExtension\": \"pdf\",\r\n    \"active\": true\r\n  }\r\n]"
+					"raw": "[\r\n  {\r\n    \"code\": \"RPT001\",\r\n    \"name\": \"A sample report 1\",\r\n    \"purpose\": \"Report\",\r\n    \r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"sampleId\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"subId\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"subId\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"sampleId\\\"\r\n\t  ]\r\n\t}\",\r\n    \"dataJsonSchema\": \"{\r\n\t  \\\"type\\\" : \\\"object\\\",\r\n\t  \\\"properties\\\": {\r\n\t    \\\"data\\\" : {\r\n\t      \\\"type\\\" : \\\"object\\\",\r\n\t      \\\"properties\\\" : {\r\n\t        \\\"key1\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        },\r\n\t        \\\"key2\\\" : {\r\n\t          \\\"type\\\" : \\\"string\\\"\r\n\t        }\r\n\t      },\r\n\t      \\\"required\\\" : [\r\n\t        \\\"key1\\\", \r\n\t        \\\"key2\\\"\r\n\t      ]\r\n\t    }\r\n\t  },\r\n\t  \\\"required\\\" : [\r\n\t    \\\"data\\\"\r\n\t  ]\r\n\t}\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report1\",\r\n    \"generatedFileExtension\": \"PDF\",\r\n    \"active\": true\r\n  },\r\n  {\r\n    \"code\": \"RPT002\",\r\n    \"name\": \"A sample report 2\",\r\n    \"purpose\": \"Report\",\r\n    \"description\": \"Description of a sample test report\",\r\n    \"jsReportTemplate\": {\r\n      \"code\": \"S146DmpPQ\",\r\n      \"name\": \"Sample 2\"\r\n    },\r\n    \"inputJsonSchema\": \"TODO\",\r\n    \"dataJsonSchema\": \"TODO\",\r\n    \"datasourceUrl\": \"http://localhost:60729/test/sample-data\",\r\n    \"storageAllowed\": true,\r\n    \"generatedFileName\": \"Report2\",\r\n    \"generatedFileExtension\": \"pdf\",\r\n    \"active\": true\r\n  }\r\n]"
 				},
 				"url": {
 					"raw": "{{ip}}:{{report-manager-port}}/reports/",
@@ -255,6 +255,146 @@
 				"description": "Test that sample data is being returned"
 			},
 			"response": []
+		},
+		{
+			"name": "Set Active Status",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001/active/false",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						"RPT001",
+						"active",
+						"false"
+					]
+				},
+				"description": "Set active status of a report to true or false"
+			},
+			"response": [
+				{
+					"name": "Set Active Status (False)",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{av_token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001/active/false",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{report-manager-port}}",
+							"path": [
+								"reports",
+								"RPT001",
+								"active",
+								"false"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Sep 2018 11:41:22 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (India Standard Time)",
+							"httpOnly": false,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "true",
+							"key": "render-complete"
+						}
+					],
+					"body": ""
+				},
+				{
+					"name": "Set Active Status (True)",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{av_token}}",
+								"disabled": false
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001/active/true",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{report-manager-port}}",
+							"path": [
+								"reports",
+								"RPT001",
+								"active",
+								"true"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Sep 2018 11:41:22 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (India Standard Time)",
+							"httpOnly": false,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "true",
+							"key": "render-complete"
+						}
+					],
+					"body": ""
+				}
+			]
 		}
 	]
 }

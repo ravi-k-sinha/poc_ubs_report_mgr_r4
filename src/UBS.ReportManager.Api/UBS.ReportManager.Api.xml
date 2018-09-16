@@ -4,6 +4,11 @@
         <name>UBS.ReportManager.Api</name>
     </assembly>
     <members>
+        <member name="T:UBS.ReportManager.Api.Attributes.ValidateModelAttribute">
+            <summary>
+            Validate Model Attribute
+            </summary>
+        </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetAllReports(System.Boolean)">
             <summary>
             Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted'
@@ -21,15 +26,15 @@
             <param name="includeDeleted">if 'true' then a deleted report will be returned</param>
             <returns>Report Information, an instance of <code>Report</code></returns>
         </member>
-        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.AddReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.AddReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Communication.ReportCreationRequest})">
             <summary>
             Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400
             will be returned with explanatory error message
             </summary>
-            <param name="newReports">New reports to be added</param>
+            <param name="creationRequests">Requests for addition of reports</param>
             <returns>Returns added reports, or error message</returns>
         </member>
-        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReports(System.Collections.Generic.List{UBS.ReportManager.Abstractions.Model.Domain.Report})">
             <summary>
             Updates one or more reports
             </summary>
@@ -38,16 +43,16 @@
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.SetReportActiveStatus(System.String,System.Boolean)">
             <summary>
-            Soft-Deletes an existing report identified by the given code. If the report is already deleted,
-            then no action is taken
+            Sets the active status of an existing report identified by the given identifier. If active status of a report
+            is same as the specified, the report's UpdatedOn is updated
             </summary>
-            <param name="id">Identifier of the report to be deleted</param>
+            <param name="idOrCode">Identifier of the report to be deleted</param>
             <param name="activeStatus">if 'true' marks active status to true, else false</param>
-            <returns>Confirmation of delete operation</returns>
+            <returns>Confirmation of update operation on active status</returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.DeleteReport(System.String)">
             <summary>
-            Soft-Deletes an existing report identified by the given code. If the report is already deleted,
+            Soft-Deletes an existing report identified by the given identifier. If the report is already deleted,
             then no action is taken
             </summary>
             <param name="id">Identifier of the report to be deleted</param>
