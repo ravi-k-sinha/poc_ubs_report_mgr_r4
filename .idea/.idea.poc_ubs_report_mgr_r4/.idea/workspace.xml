@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3714e788-4ce5-4588-8023-e4c42a1c7382" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Api/Attributes/ValidateModelAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.poc_ubs_report_mgr_r4/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POC-ReportManager.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/POC-ReportManager.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/UBS.ReportManager.Abstractions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/UBS.ReportManager.Abstractions.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UBS.ReportManager.Api/UBS.ReportManager.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UBS.ReportManager.Api/UBS.ReportManager.Api.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,31 +26,31 @@
     <session id="1229892143">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="154" />
+          <entry key="cs" value="158" />
           <entry key="csproj" value="3" />
           <entry key="gitignore" value="8" />
-          <entry key="json" value="5" />
+          <entry key="json" value="6" />
           <entry key="xml" value="2" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="154" />
+          <entry key="C#" value="158" />
           <entry key="Csproj" value="3" />
-          <entry key="JSON" value="5" />
+          <entry key="JSON" value="6" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="2" />
           <entry key="YAML" value="2" />
@@ -46,20 +58,20 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="21895" />
+          <entry key="cs" value="23143" />
           <entry key="csproj" value="18" />
           <entry key="gitignore" value="34" />
           <entry key="json" value="224" />
-          <entry key="txt" value="4954" />
+          <entry key="txt" value="5010" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="21895" />
+          <entry key="C#" value="23143" />
           <entry key="Csproj" value="18" />
           <entry key="JSON" value="224" />
-          <entry key="PLAIN_TEXT" value="4988" />
+          <entry key="PLAIN_TEXT" value="5044" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
@@ -70,11 +82,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportService.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="176" column="1" lean-forward="true" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+            <state relative-caret-position="230">
+              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
               <folding>
                 <marker date="1536926144245" expanded="true" signature="35:7099" ph="{...}" />
-                <marker date="1536926144245" expanded="true" signature="48:580" ph="..." />
+                <marker date="1536926144245" expanded="false" signature="48:580" ph="..." />
                 <marker date="1536926144245" expanded="true" signature="629:7097" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="1262:2165" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="1575:1737" ph="/* Read the token so that we are sure that Authorization Bearer token is present &amp; is valid ... */" />
@@ -86,7 +98,7 @@
                 <marker date="1536926144245" expanded="true" signature="3185:3254" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="3345:3697" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="3760:4117" ph="{...}" />
-                <marker date="1536926144245" expanded="false" signature="4214:7091" ph="{...}" />
+                <marker date="1536926144245" expanded="true" signature="4214:7091" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="4441:4796" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="4547:4658" ph="{...}" />
                 <marker date="1536926144245" expanded="true" signature="4884:4952" ph="{...}" />
@@ -107,8 +119,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Domain/IReport.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="33" column="94" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
+            <state>
               <folding>
                 <marker date="1536835157562" expanded="true" signature="53:2826" ph="{...}" />
                 <marker date="1536835157562" expanded="false" signature="66:119" ph="..." />
@@ -131,13 +142,51 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Domain/Report.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="21" column="53" selection-start-line="7" selection-start-column="8" selection-end-line="21" selection-end-column="53" />
+              <folding>
+                <marker date="1536835188816" expanded="true" signature="53:934" ph="{...}" />
+                <marker date="1536835188816" expanded="false" signature="66:119" ph="..." />
+                <marker date="1536835188816" expanded="true" signature="165:932" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Properties/launchSettings.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationRequest.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+              <folding>
+                <marker date="1537013914473" expanded="true" signature="60:1950" ph="{...}" />
+                <marker date="1537013914473" expanded="true" signature="73:167" ph="..." />
+                <marker date="1537013914473" expanded="true" signature="207:1948" ph="{...}" />
+                <marker date="1537013914473" expanded="true" signature="1026:1687" ph="{...}" />
+                <marker date="1537013914473" expanded="true" signature="1774:1942" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportUtil.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
+            <state relative-caret-position="1479">
               <caret line="95" column="66" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="66" />
               <folding>
-                <marker date="1536926311988" expanded="true" signature="35:3418" ph="{...}" />
                 <marker date="1536926311988" expanded="false" signature="48:321" ph="..." />
                 <marker date="1536926311988" expanded="true" signature="357:3416" ph="{...}" />
                 <marker date="1536926311988" expanded="true" signature="435:989" ph="/// Invokes the datasource endpoint reads the resulting Json data sent ... " />
@@ -163,7 +212,6 @@
             <state relative-caret-position="170">
               <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
               <folding>
-                <marker date="1536926121101" expanded="true" signature="48:708" ph="{...}" />
                 <marker date="1536926121101" expanded="false" signature="61:175" ph="..." />
                 <marker date="1536926121101" expanded="true" signature="212:706" ph="{...}" />
               </folding>
@@ -171,40 +219,73 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="109" column="53" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
+            <state relative-caret-position="59">
+              <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
               <folding>
-                <marker date="1536926179081" expanded="true" signature="43:7381" ph="{...}" />
-                <marker date="1536926179081" expanded="false" signature="56:365" ph="..." />
-                <marker date="1536926179081" expanded="true" signature="445:7379" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="523:643" ph="/* TODO Integrate AuditTrail library ... */" />
-                <marker date="1536926179081" expanded="true" signature="736:853" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="863:1245" ph="/// Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted' ... " />
-                <marker date="1536926179081" expanded="true" signature="1457:1665" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="1675:2172" ph="/// Returns information on a report identified by given &lt;code&gt;id&lt;/code&gt;. Optionally query parameter 'includeDelet ... " />
-                <marker date="1536926179081" expanded="true" signature="2453:2674" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="2513:2662" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="2692:3047" ph="/// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400 ... " />
-                <marker date="1536926179081" expanded="true" signature="3288:3487" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="3348:3475" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="3505:3708" ph="/// Updates one or more reports ... " />
-                <marker date="1536926179081" expanded="true" signature="3860:3948" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="3958:4448" ph="/// Sets the active status of an existing report identified by the given identifier. If active status of a report ... " />
-                <marker date="1536926179081" expanded="true" signature="4687:5218" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="4764:5193" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="4806:5007" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="5064:5175" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="5236:5562" ph="/// Soft-Deletes an existing report identified by the given identifier. If the report is already deleted, ... " />
-                <marker date="1536926179081" expanded="true" signature="5740:6242" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="5817:6217" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="5859:6031" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="6088:6199" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="6252:6695" ph="/// Generates a report file using the information on template provided by the report identified with &lt;code&gt;id&lt;/co ... " />
-                <marker date="1536926179081" expanded="true" signature="7037:7373" ph="{...}" />
-                <marker date="1536926179081" expanded="true" signature="7097:7361" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="43:7640" ph="{...}" />
+                <marker date="1537013219634" expanded="false" signature="56:431" ph="..." />
+                <marker date="1537013219634" expanded="true" signature="531:7638" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="609:729" ph="/* TODO Integrate AuditTrail library ... */" />
+                <marker date="1537013219634" expanded="true" signature="822:939" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="949:1331" ph="/// Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted' ... " />
+                <marker date="1537013219634" expanded="true" signature="1543:1751" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="1761:2258" ph="/// Returns information on a report identified by given &lt;code&gt;id&lt;/code&gt;. Optionally query parameter 'includeDelet ... " />
+                <marker date="1537013219634" expanded="true" signature="2539:2760" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="2599:2748" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="2770:3140" ph="/// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400 ... " />
+                <marker date="1537013219634" expanded="true" signature="3417:3746" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="3477:3734" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="3764:3967" ph="/// Updates one or more reports ... " />
+                <marker date="1537013219634" expanded="true" signature="4119:4207" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="4217:4707" ph="/// Sets the active status of an existing report identified by the given identifier. If active status of a report ... " />
+                <marker date="1537013219634" expanded="true" signature="4946:5477" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="5023:5452" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="5065:5266" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="5323:5434" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="5495:5821" ph="/// Soft-Deletes an existing report identified by the given identifier. If the report is already deleted, ... " />
+                <marker date="1537013219634" expanded="true" signature="5999:6501" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="6076:6476" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="6118:6290" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="6347:6458" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="6511:6954" ph="/// Generates a report file using the information on template provided by the report identified with &lt;code&gt;id&lt;/co ... " />
+                <marker date="1537013219634" expanded="true" signature="7296:7632" ph="{...}" />
+                <marker date="1537013219634" expanded="true" signature="7356:7620" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Attributes/ValidateModelAttribute.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+              <folding>
+                <marker date="1537064110306" expanded="true" signature="42:650" ph="{...}" />
+                <marker date="1537064110306" expanded="true" signature="55:124" ph="..." />
+                <marker date="1537064110306" expanded="true" signature="130:319" ph="/// Validate Model Attribute that enables sending BadRequest (400) code in the event of serialized models not bei ... " />
+                <marker date="1537064110306" expanded="true" signature="383:648" ph="{...}" />
+                <marker date="1537064110306" expanded="true" signature="468:642" ph="{...}" />
+                <marker date="1537064110306" expanded="true" signature="523:632" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationResponse.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="39" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="39" />
+              <folding>
+                <marker date="1537012231245" expanded="true" signature="60:737" ph="{...}" />
+                <marker date="1537012231245" expanded="true" signature="73:118" ph="..." />
+                <marker date="1537012231245" expanded="true" signature="159:735" ph="{...}" />
+                <marker date="1537012231245" expanded="true" signature="386:729" ph="{...}" />
+                <marker date="1537012231245" expanded="true" signature="560:687" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -250,9 +331,12 @@
     <setting file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/TestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CE2E3A8-E2EC-4FBF-86BE-4CF0BAB90A28/b1/99c476f2/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15BE03F6-4E27-4C7A-8938-56A2332AE167/34/31e8e476/BsonDocumentSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Attributes/ValidateModelAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15BE03F6-4E27-4C7A-8938-56A2332AE167/ed/3a5d5510/ElementAppendingSerializer`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A0AB32E1-40B4-4C8E-8063-9A349EFC79F3/a7/09690785/MongoCollectionImpl`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8DB3B3A8-AE6A-4BA2-9EF5-8798368C7AE6/5b/b2c15466/QueryMessageBinaryEncoder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8DB3B3A8-AE6A-4BA2-9EF5-8798368C7AE6/71/a9da9bde/BinaryConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15BE03F6-4E27-4C7A-8938-56A2332AE167/dc/5ba4db6a/BsonClassMapSerializer`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportUtil.cs" root0="FORCE_HIGHLIGHTING" />
@@ -321,7 +405,10 @@
         <option value="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Service/IReportService.cs" />
         <option value="$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportUtil.cs" />
         <option value="$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportService.cs" />
+        <option value="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationResponse.cs" />
+        <option value="$PROJECT_DIR$/src/UBS.ReportManager.Api/Attributes/ValidateModelAttribute.cs" />
         <option value="$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs" />
+        <option value="$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationRequest.cs" />
       </list>
     </option>
   </component>
@@ -332,8 +419,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
+    <option name="x" value="950" />
+    <option name="width" value="979" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -342,6 +429,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -354,12 +442,47 @@
               <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
               <item name="src" type="24d0babc:SolutionExplorerModelNode" />
             </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UBS.ReportManager.Abstractions" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UBS.ReportManager.Abstractions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UBS.ReportManager.Abstractions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Model" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UBS.ReportManager.Abstractions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Model" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Communication" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="poc_ubs_report_mgr_r4" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UBS.ReportManager.Abstractions" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Model" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Domain" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,7 +552,8 @@
       <workItem from="1536573207867" duration="50887000" />
       <workItem from="1536749908334" duration="1391000" />
       <workItem from="1536802617103" duration="27706000" />
-      <workItem from="1536907194360" duration="17258000" />
+      <workItem from="1536907194360" duration="17851000" />
+      <workItem from="1536937100767" duration="7861000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with skeleton Api Controller and initial model">
       <created>1536318493979</created>
@@ -718,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536926362196</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Removed tracking for workspace.xml in .idea folder">
+      <created>1536934295096</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1536934295096</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117397000" />
+    <option name="totallyTimeSpent" value="125851000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -736,7 +867,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536913" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25704697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -773,7 +904,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated Xml Documentation in the controller &amp; applied relevant annotations (Json return type, return codes, etc.) on endpoints" />
     <MESSAGE value="Minor update to XMl documentation" />
     <MESSAGE value="Outlined the algorithm for the generation of a report" />
     <MESSAGE value="Added DatasourceUrl property to a report" />
@@ -798,7 +928,8 @@
     <MESSAGE value="Added documentation, renamed an exception class to have better meaning" />
     <MESSAGE value="Removing idea files from tracking" />
     <MESSAGE value="Implemented endpoint to set active status of a report; Implemented a method to generated exception message as it was same everywhere" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented endpoint to set active status of a report; Implemented a method to generated exception message as it was same everywhere" />
+    <MESSAGE value="Removed tracking for workspace.xml in .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed tracking for workspace.xml in .idea folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -838,10 +969,10 @@
           <line>170</line>
           <properties documentPath="$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportService.cs" initialLine="165">
             <startOffsets>
-              <option value="6832" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="6832" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />
@@ -850,27 +981,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8DB3B3A8-AE6A-4BA2-9EF5-8798368C7AE6/62/32f4ff9a/SizeLimitingBatchableSourceSerializer`1.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="110" column="8" selection-start-line="110" selection-start-column="8" selection-end-line="110" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15BE03F6-4E27-4C7A-8938-56A2332AE167/44/ce0c8a38/BsonArraySerializer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/15BE03F6-4E27-4C7A-8938-56A2332AE167/34/31e8e476/BsonDocumentSerializer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8DB3B3A8-AE6A-4BA2-9EF5-8798368C7AE6/cf/f51662ec/CommandWireProtocol`1.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1025,13 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Properties/launchSettings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Settings.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1072,46 +1175,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <marker date="1536841561668" expanded="false" signature="64:195" ph="..." />
-            <marker date="1536841561668" expanded="true" signature="258:627" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Exception/TemplateNotFoundException.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Exception/ReportGenerationException.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Exception/TemplateNotFoundException.cs" />
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Exception/ReportGenerationException.cs" />
     <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/TestController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
-          <folding>
-            <marker date="1536916249342" expanded="true" signature="43:1795" ph="{...}" />
-            <marker date="1536916249342" expanded="false" signature="56:471" ph="..." />
-            <marker date="1536916249342" expanded="true" signature="547:1793" ph="{...}" />
-            <marker date="1536916249342" expanded="true" signature="691:806" ph="{...}" />
-            <marker date="1536916249342" expanded="true" signature="816:907" ph="/// A sample endpoint that returns sample data ... " />
-            <marker date="1536916249342" expanded="true" signature="1064:1787" ph="{...}" />
-            <marker date="1536916249342" expanded="true" signature="1347:1463" ph="{...}" />
-            <marker date="1536916249342" expanded="true" signature="1593:1773" ph="{...}" />
-            <marker date="1536916249342" expanded="true" signature="1625:1772" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Domain/Report.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <marker date="1536835188816" expanded="true" signature="53:934" ph="{...}" />
-            <marker date="1536835188816" expanded="false" signature="66:119" ph="..." />
-            <marker date="1536835188816" expanded="true" signature="165:932" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1119,12 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="115" selection-start-line="5" selection-start-column="115" selection-end-line="5" selection-end-column="115" />
-          <folding>
-            <marker date="1536834534929" expanded="true" signature="53:517" ph="{...}" />
-            <marker date="1536834534929" expanded="true" signature="89:515" ph="{...}" />
-            <marker date="1536834534929" expanded="true" signature="104:256" ph="/// Unique code for the template that will generate a report. This template will exist in a jsreport server ... " />
-            <marker date="1536834534929" expanded="true" signature="315:468" ph="/// Unique name of the template that will generate a report. This template will exist with a jsreport server ... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,12 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <marker date="1536922386196" expanded="true" signature="58:573" ph="{...}" />
-            <marker date="1536922386196" expanded="true" signature="87:209" ph="/// This value class is used for gathering important data about a generated JS report ... " />
-            <marker date="1536922386196" expanded="true" signature="248:571" ph="{...}" />
-            <marker date="1536922386196" expanded="true" signature="454:565" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1145,25 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
-          <folding>
-            <marker date="1536731495138" expanded="true" signature="31:6186" ph="{...}" />
-            <marker date="1536731495138" expanded="false" signature="44:957" ph="..." />
-            <marker date="1536731495138" expanded="true" signature="983:6184" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="1044:1107" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="1333:2405" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="2491:4870" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="2656:4858" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="2731:3461" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="3060:3259" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="3323:3443" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="3857:4293" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="4398:4471" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="5058:5352" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="5105:5182" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="5455:6178" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="5611:5845" ph="{...}" />
-            <marker date="1536731495138" expanded="true" signature="5882:6166" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1171,10 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding>
-            <marker date="1536582698587" expanded="true" signature="45:109" ph="{...}" />
-            <marker date="1536582698587" expanded="true" signature="95:107" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,12 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding>
-            <marker date="1536922482089" expanded="true" signature="56:356" ph="{...}" />
-            <marker date="1536922482089" expanded="true" signature="130:354" ph="{...}" />
-            <marker date="1536922482089" expanded="true" signature="236:256" ph="{...}" />
-            <marker date="1536922482089" expanded="true" signature="328:348" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,12 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <marker date="1536580688717" expanded="true" signature="56:332" ph="{...}" />
-            <marker date="1536580688717" expanded="true" signature="130:330" ph="{...}" />
-            <marker date="1536580688717" expanded="true" signature="212:232" ph="{...}" />
-            <marker date="1536580688717" expanded="true" signature="304:324" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1215,10 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <marker date="1536582631926" expanded="true" signature="45:106" ph="{...}" />
-            <marker date="1536582631926" expanded="true" signature="83:104" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1226,32 +1247,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportUtil.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="95" column="66" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="66" />
           <folding>
-            <marker date="1536922482096" expanded="true" signature="39:4204" ph="{...}" />
-            <marker date="1536922482096" expanded="false" signature="52:569" ph="..." />
-            <marker date="1536922482096" expanded="true" signature="658:4202" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="747:1412" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="814:1400" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="1616:1985" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="2077:2907" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="2224:2532" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="2549:2857" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="2992:3233" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3312:3908" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3358:3547" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3566:3724" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3617:3708" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3773:3866" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="3984:4060" ph="{...}" />
-            <marker date="1536922482096" expanded="true" signature="4120:4196" ph="{...}" />
+            <marker date="1536926311988" expanded="false" signature="48:321" ph="..." />
+            <marker date="1536926311988" expanded="true" signature="357:3416" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="435:989" ph="/// Invokes the datasource endpoint reads the resulting Json data sent ... " />
+            <marker date="1536926311988" expanded="true" signature="1148:1648" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="1755:2220" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="1886:2011" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2285:2999" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2348:2406" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2627:2685" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2702:2803" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2843:2901" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="2931:2989" ph="{...}" />
+            <marker date="1536926311988" expanded="true" signature="3009:3246" ph="/// Generates a message to be used for ReportNotFoundException when the input could be either id or code of a rep ... " />
+            <marker date="1536926311988" expanded="true" signature="3320:3410" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Service/IReportService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding>
+            <marker date="1536926121101" expanded="false" signature="61:175" ph="..." />
+            <marker date="1536926121101" expanded="true" signature="212:706" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Properties/launchSettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Domain/IReport.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="33" column="94" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
+        <state>
           <folding>
             <marker date="1536835157562" expanded="true" signature="53:2826" ph="{...}" />
             <marker date="1536835157562" expanded="false" signature="66:119" ph="..." />
@@ -1273,62 +1315,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs">
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Domain/Report.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="109" column="53" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
+        <state relative-caret-position="340">
+          <caret line="21" column="53" selection-start-line="7" selection-start-column="8" selection-end-line="21" selection-end-column="53" />
           <folding>
-            <marker date="1536926179081" expanded="true" signature="43:7381" ph="{...}" />
-            <marker date="1536926179081" expanded="false" signature="56:365" ph="..." />
-            <marker date="1536926179081" expanded="true" signature="445:7379" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="523:643" ph="/* TODO Integrate AuditTrail library ... */" />
-            <marker date="1536926179081" expanded="true" signature="736:853" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="863:1245" ph="/// Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted' ... " />
-            <marker date="1536926179081" expanded="true" signature="1457:1665" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="1675:2172" ph="/// Returns information on a report identified by given &lt;code&gt;id&lt;/code&gt;. Optionally query parameter 'includeDelet ... " />
-            <marker date="1536926179081" expanded="true" signature="2453:2674" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="2513:2662" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="2692:3047" ph="/// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400 ... " />
-            <marker date="1536926179081" expanded="true" signature="3288:3487" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="3348:3475" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="3505:3708" ph="/// Updates one or more reports ... " />
-            <marker date="1536926179081" expanded="true" signature="3860:3948" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="3958:4448" ph="/// Sets the active status of an existing report identified by the given identifier. If active status of a report ... " />
-            <marker date="1536926179081" expanded="true" signature="4687:5218" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="4764:5193" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="4806:5007" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="5064:5175" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="5236:5562" ph="/// Soft-Deletes an existing report identified by the given identifier. If the report is already deleted, ... " />
-            <marker date="1536926179081" expanded="true" signature="5740:6242" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="5817:6217" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="5859:6031" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="6088:6199" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="6252:6695" ph="/// Generates a report file using the information on template provided by the report identified with &lt;code&gt;id&lt;/co ... " />
-            <marker date="1536926179081" expanded="true" signature="7037:7373" ph="{...}" />
-            <marker date="1536926179081" expanded="true" signature="7097:7361" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Service/IReportService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding>
-            <marker date="1536926121101" expanded="true" signature="48:708" ph="{...}" />
-            <marker date="1536926121101" expanded="false" signature="61:175" ph="..." />
-            <marker date="1536926121101" expanded="true" signature="212:706" ph="{...}" />
+            <marker date="1536835188816" expanded="true" signature="53:934" ph="{...}" />
+            <marker date="1536835188816" expanded="false" signature="66:119" ph="..." />
+            <marker date="1536835188816" expanded="true" signature="165:932" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportService.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="176" column="1" lean-forward="true" selection-start-line="176" selection-start-column="1" selection-end-line="176" selection-end-column="1" />
+        <state relative-caret-position="230">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
           <folding>
             <marker date="1536926144245" expanded="true" signature="35:7099" ph="{...}" />
-            <marker date="1536926144245" expanded="true" signature="48:580" ph="..." />
+            <marker date="1536926144245" expanded="false" signature="48:580" ph="..." />
             <marker date="1536926144245" expanded="true" signature="629:7097" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="1262:2165" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="1575:1737" ph="/* Read the token so that we are sure that Authorization Bearer token is present &amp; is valid ... */" />
@@ -1340,7 +1345,7 @@
             <marker date="1536926144245" expanded="true" signature="3185:3254" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="3345:3697" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="3760:4117" ph="{...}" />
-            <marker date="1536926144245" expanded="false" signature="4214:7091" ph="{...}" />
+            <marker date="1536926144245" expanded="true" signature="4214:7091" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="4441:4796" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="4547:4658" ph="{...}" />
             <marker date="1536926144245" expanded="true" signature="4884:4952" ph="{...}" />
@@ -1357,26 +1362,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Service/ReportUtil.cs">
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationResponse.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="95" column="66" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="66" />
+        <state relative-caret-position="85">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="39" />
           <folding>
-            <marker date="1536926311988" expanded="true" signature="35:3418" ph="{...}" />
-            <marker date="1536926311988" expanded="false" signature="48:321" ph="..." />
-            <marker date="1536926311988" expanded="true" signature="357:3416" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="435:989" ph="/// Invokes the datasource endpoint reads the resulting Json data sent ... " />
-            <marker date="1536926311988" expanded="true" signature="1148:1648" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="1755:2220" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="1886:2011" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2285:2999" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2348:2406" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2627:2685" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2702:2803" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2843:2901" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="2931:2989" ph="{...}" />
-            <marker date="1536926311988" expanded="true" signature="3009:3246" ph="/// Generates a message to be used for ReportNotFoundException when the input could be either id or code of a rep ... " />
-            <marker date="1536926311988" expanded="true" signature="3320:3410" ph="{...}" />
+            <marker date="1537012231245" expanded="true" signature="60:737" ph="{...}" />
+            <marker date="1537012231245" expanded="true" signature="73:118" ph="..." />
+            <marker date="1537012231245" expanded="true" signature="159:735" ph="{...}" />
+            <marker date="1537012231245" expanded="true" signature="386:729" ph="{...}" />
+            <marker date="1537012231245" expanded="true" signature="560:687" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Attributes/ValidateModelAttribute.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+          <folding>
+            <marker date="1537064110306" expanded="true" signature="42:650" ph="{...}" />
+            <marker date="1537064110306" expanded="true" signature="55:124" ph="..." />
+            <marker date="1537064110306" expanded="true" signature="130:319" ph="/// Validate Model Attribute that enables sending BadRequest (400) code in the event of serialized models not bei ... " />
+            <marker date="1537064110306" expanded="true" signature="383:648" ph="{...}" />
+            <marker date="1537064110306" expanded="true" signature="468:642" ph="{...}" />
+            <marker date="1537064110306" expanded="true" signature="523:632" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Abstractions/Model/Communication/ReportCreationRequest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <marker date="1537013914473" expanded="true" signature="60:1950" ph="{...}" />
+            <marker date="1537013914473" expanded="true" signature="73:167" ph="..." />
+            <marker date="1537013914473" expanded="true" signature="207:1948" ph="{...}" />
+            <marker date="1537013914473" expanded="true" signature="1026:1687" ph="{...}" />
+            <marker date="1537013914473" expanded="true" signature="1774:1942" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UBS.ReportManager.Api/Controllers/ReportController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
+          <folding>
+            <marker date="1537013219634" expanded="true" signature="43:7640" ph="{...}" />
+            <marker date="1537013219634" expanded="false" signature="56:431" ph="..." />
+            <marker date="1537013219634" expanded="true" signature="531:7638" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="609:729" ph="/* TODO Integrate AuditTrail library ... */" />
+            <marker date="1537013219634" expanded="true" signature="822:939" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="949:1331" ph="/// Returns all reports in the system that are active (not deleted). Optionally query parameter 'includeDeleted' ... " />
+            <marker date="1537013219634" expanded="true" signature="1543:1751" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="1761:2258" ph="/// Returns information on a report identified by given &lt;code&gt;id&lt;/code&gt;. Optionally query parameter 'includeDelet ... " />
+            <marker date="1537013219634" expanded="true" signature="2539:2760" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="2599:2748" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="2770:3140" ph="/// Adds one or more report. In case the input contains a duplicate, none of the reports will be added and 400 ... " />
+            <marker date="1537013219634" expanded="true" signature="3417:3746" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="3477:3734" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="3764:3967" ph="/// Updates one or more reports ... " />
+            <marker date="1537013219634" expanded="true" signature="4119:4207" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="4217:4707" ph="/// Sets the active status of an existing report identified by the given identifier. If active status of a report ... " />
+            <marker date="1537013219634" expanded="true" signature="4946:5477" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="5023:5452" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="5065:5266" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="5323:5434" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="5495:5821" ph="/// Soft-Deletes an existing report identified by the given identifier. If the report is already deleted, ... " />
+            <marker date="1537013219634" expanded="true" signature="5999:6501" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="6076:6476" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="6118:6290" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="6347:6458" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="6511:6954" ph="/// Generates a report file using the information on template provided by the report identified with &lt;code&gt;id&lt;/co ... " />
+            <marker date="1537013219634" expanded="true" signature="7296:7632" ph="{...}" />
+            <marker date="1537013219634" expanded="true" signature="7356:7620" ph="{...}" />
           </folding>
         </state>
       </provider>

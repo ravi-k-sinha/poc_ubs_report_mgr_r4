@@ -18,6 +18,10 @@
             <e p="IConfiguration.cs" t="Include" />
           </e>
           <e p="Model" t="Include">
+            <e p="Communication" t="Include">
+              <e p="ReportCreationRequest.cs" t="Include" />
+              <e p="ReportCreationResponse.cs" t="Include" />
+            </e>
             <e p="Domain" t="Include">
               <e p="IReport.cs" t="Include" />
               <e p="JsReportTemplate.cs" t="Include" />
@@ -50,6 +54,9 @@
         <e p="UBS.ReportManager.Api" t="IncludeRecursive">
           <e p="appsettings.Development.json" t="Include" />
           <e p="appsettings.json" t="Include" />
+          <e p="Attributes" t="Include">
+            <e p="ValidateModelAttribute.cs" t="Include" />
+          </e>
           <e p="Bin" t="ExcludeRecursive" />
           <e p="Controllers" t="Include">
             <e p="ReportController.cs" t="Include" />
