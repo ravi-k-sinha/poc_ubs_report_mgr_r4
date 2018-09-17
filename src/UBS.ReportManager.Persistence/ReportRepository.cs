@@ -102,15 +102,5 @@ namespace UBS.ReportManager.Persistence
 
             return newReports;
         }
-
-        public Task<List<IReport>> UpdateReports(List<IReport> newReports)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<List<IReport>> DeleteReport(string id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -11,9 +11,5 @@ namespace UBS.ReportManager.Abstractions.Repository
         Task<List<IReport>> GetAllReports(bool includeDeleted = false);
         
         Task<List<IReport>> AddReports(List<IReport> newReports);
-  
-        Task<List<IReport>> UpdateReports(List<IReport> newReports);
-     
-        Task<List<IReport>> DeleteReport(string id);
     }
 }

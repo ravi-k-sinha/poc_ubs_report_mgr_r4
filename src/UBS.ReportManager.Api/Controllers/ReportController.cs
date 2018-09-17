@@ -84,18 +84,6 @@ namespace UBS.ReportManager.Api.Controllers
         }
         
         /// <summary>
-        /// Updates one or more reports
-        /// </summary>
-        /// <param name="updatedReports">Updated information on one or more reports</param>
-        /// <returns>???</returns>
-        [HttpPut]
-        [Produces("application/json")]
-        public async Task<IActionResult> UpdateReports([FromBody] List<Report> updatedReports)
-        {
-            return await Task.Run(() => Ok("Not Yet Implemented"));
-        }
-
-        /// <summary>
         /// Updates a report identified by idOrCode with the patch instructions specified
         /// </summary>
         /// <param name="idOrCode">Identifier of the report to be updated</param>

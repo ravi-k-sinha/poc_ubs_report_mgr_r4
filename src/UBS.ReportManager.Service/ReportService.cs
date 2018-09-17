@@ -75,11 +75,6 @@ namespace UBS.ReportManager.Service
             return true;
         }
 
-        public Task<bool> UpdateReports(List<Report> updatedReports)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> UpdateReport(string idOrCode, JsonPatchDocument<Report> reportPatch)
         {
             var report = await ReportRepository.GetReport(idOrCode) ??
