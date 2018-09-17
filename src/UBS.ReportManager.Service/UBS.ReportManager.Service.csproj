@@ -24,6 +24,9 @@
       <Reference Include="LendFoundry.Foundation.Services, Version=2.0.21.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>C:\Users\RaviSinha.UNIBIZIND\.nuget\packages\lendfoundry.foundation.services\2.0.21\lib\netstandard2.0\LendFoundry.Foundation.Services.dll</HintPath>
       </Reference>
+      <Reference Include="Microsoft.AspNetCore.JsonPatch, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.jsonpatch\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.JsonPatch.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>

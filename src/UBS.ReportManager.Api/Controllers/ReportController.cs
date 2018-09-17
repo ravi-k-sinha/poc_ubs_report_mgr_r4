@@ -10,6 +10,7 @@ namespace UBS.ReportManager.Api.Controllers
     using Attributes;
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Services;
+    using Microsoft.AspNetCore.JsonPatch;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("/reports")]
@@ -95,6 +96,34 @@ namespace UBS.ReportManager.Api.Controllers
         }
 
         /// <summary>
+        /// Updates a report identified by idOrCode with the patch instructions specified
+        /// </summary>
+        /// <param name="idOrCode">Identifier of the report to be updated</param>
+        /// <param name="reportPatch">Patch information</param>
+        /// <returns></returns>
+        [HttpPatch("{idOrCode}")]
+        [Consumes("application/json")]
+        [Produces("application/json")]
+        public async Task<IActionResult> UpdateReport(string idOrCode, [FromBody] JsonPatchDocument<Report> reportPatch)
+        {
+            return await ExecuteAsync(
+                async () =>
+                {
+                    try
+                    {
+                        await ReportService.UpdateReport(idOrCode, reportPatch).ConfigureAwait(false);
+                        return NoContent();
+                    }
+                    catch (ReportNotFoundException rnfe)
+                    {
+                        throw new NotFoundException(rnfe.Message);
+                    }
+                }
+            );
+            
+        }
+
+        /// <summary>
         /// Sets the active status of an existing report identified by the given identifier. If active status of a report
         /// is same as the specified, the report's UpdatedOn is updated
         /// </summary>
@@ -119,7 +148,7 @@ namespace UBS.ReportManager.Api.Controllers
                         throw new NotFoundException(rnfe.Message);
                     }
                 }
-            );
+            ).ConfigureAwait(false);
         }
         
         /// <summary>

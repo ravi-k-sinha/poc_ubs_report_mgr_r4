@@ -5,8 +5,10 @@
     </assembly>
     <members>
         <member name="T:UBS.ReportManager.Api.Attributes.ValidateModelAttribute">
+            <inheritdoc />
             <summary>
-            Validate Model Attribute
+            Validate Model Attribute that enables sending BadRequest (400) code in the event of serialized models not being
+            valid
             </summary>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.GetAllReports(System.Boolean)">
@@ -40,6 +42,14 @@
             </summary>
             <param name="updatedReports">Updated information on one or more reports</param>
             <returns>???</returns>
+        </member>
+        <member name="M:UBS.ReportManager.Api.Controllers.ReportController.UpdateReport(System.String,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{UBS.ReportManager.Abstractions.Model.Domain.Report})">
+            <summary>
+            Updates a report identified by idOrCode with the patch instructions specified
+            </summary>
+            <param name="idOrCode">Identifier of the report to be updated</param>
+            <param name="reportPatch">Patch information</param>
+            <returns></returns>
         </member>
         <member name="M:UBS.ReportManager.Api.Controllers.ReportController.SetReportActiveStatus(System.String,System.Boolean)">
             <summary>

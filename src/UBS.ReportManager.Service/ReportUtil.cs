@@ -3,6 +3,7 @@ namespace UBS.ReportManager.Service
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Abstractions.Model.Domain;
     using LendFoundry.Foundation.Client;
     using LendFoundry.Security.Tokens;
     using Newtonsoft.Json;
@@ -94,6 +95,35 @@ namespace UBS.ReportManager.Service
         public static string GetNotFoundExMsgForIdOrCode(string idOrCode)
         {
             return $"A report was not found with id/code={idOrCode}";
+        }
+
+        public static bool ValidatePatchedReport(Report original, Report patched, out List<string> errors)
+        {
+            errors = new List<string>();
+
+            if (! patched.Code.Equals(original.Code))
+            {
+                errors.Add("'Code' cannot be updated");
+            }
+
+            if (! patched.CreatedOn.Equals(original.CreatedOn))
+            {
+                errors.Add("'CreatedOn' date cannot be updated");
+            }
+            
+            if (! patched.UpdatedOn.Equals(original.UpdatedOn))
+            {
+                errors.Add("'UpdatedOn' date cannot be updated");
+            }
+            
+            if (! patched.DeletedOn.Equals(original.DeletedOn))
+            {
+                errors.Add("'DeletedOn' date cannot be updated");
+            }
+            
+            // TODO Other validations to be done related to length, and type of data
+            
+            return errors.Count == 0;
         }
     }
 }

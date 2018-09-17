@@ -3,6 +3,7 @@ namespace UBS.ReportManager.Service
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
+    using System.Net.Security;
     using System.Text;
     using System.Threading.Tasks;
     using Abstractions.Model.Domain;
@@ -16,6 +17,8 @@ namespace UBS.ReportManager.Service
     using LendFoundry.Foundation.Logging;
     using LendFoundry.Foundation.Services;
     using LendFoundry.Security.Tokens;
+    using Microsoft.AspNetCore.JsonPatch;
+    using Newtonsoft.Json;
 
     public class ReportService : IReportService
     {
@@ -75,6 +78,31 @@ namespace UBS.ReportManager.Service
         public Task<bool> UpdateReports(List<Report> updatedReports)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateReport(string idOrCode, JsonPatchDocument<Report> reportPatch)
+        {
+            var report = await ReportRepository.GetReport(idOrCode) ??
+                         throw new ReportNotFoundException(ReportUtil.GetNotFoundExMsgForIdOrCode(idOrCode));
+
+            var copiedReport = (Report) JsonConvert.DeserializeObject(JsonConvert.SerializeObject(report), typeof(Report));
+            
+            reportPatch.ApplyTo(copiedReport);
+
+            var valid = ReportUtil.ValidatePatchedReport((Report)report, copiedReport, out var errors);
+
+            if (!valid)
+            {
+                var sb = new StringBuilder();
+                errors.ForEach(e => sb.Append(e + ", "));
+                throw new InvalidArgumentException($"Errors in the patch submitted : {sb}");
+            }
+
+            copiedReport.TenantId = report.TenantId; // TenantId is marked with [JsonIgnore], so need to copy it
+            copiedReport.UpdatedOn = TenantTime.Now;
+            ReportRepository.Update(copiedReport);
+
+            return true;
         }
 
         public async Task<bool> SetReportActiveStatus(string idOrCode, bool activeStatus)
@@ -157,7 +185,7 @@ namespace UBS.ReportManager.Service
                 throw new InvalidArgumentException($"Report data was not received or invalid. Errors=[{sb}]");
             }
 
-            jsreport.Types.Report jsReport = null;
+            jsreport.Types.Report jsReport;
             try
             {
                 jsReport = await ReportingService.RenderAsync(report.JsReportTemplate.Code, reportJsonData);

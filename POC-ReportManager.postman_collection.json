@@ -72,6 +72,176 @@
 			"response": []
 		},
 		{
+			"name": "Update a report (JsonPatch)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{av_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n\t{ \"op\": \"replace\", \"path\": \"/Description\", \"value\": \"Updated description using JsonPatch\" },\r\n\t{ \"op\": \"replace\", \"path\": \"/Purpose\", \"value\": \"EmailHeader\" }\r\n]"
+				},
+				"url": {
+					"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{report-manager-port}}",
+					"path": [
+						"reports",
+						"RPT001"
+					]
+				},
+				"description": "Update a report by sending partial patch"
+			},
+			"response": [
+				{
+					"name": "Update a report (JsonPatch) - Valid",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{av_token}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{ \"op\": \"replace\", \"path\": \"/Description\", \"value\": \"Updated description using JsonPatch\" },\r\n\t{ \"op\": \"replace\", \"path\": \"/Purpose\", \"value\": \"EmailHeader\" }\r\n]"
+						},
+						"url": {
+							"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{report-manager-port}}",
+							"path": [
+								"reports",
+								"RPT001"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 11:11:19 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (India Standard Time)",
+							"httpOnly": false,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "true",
+							"key": "render-complete"
+						}
+					],
+					"body": ""
+				},
+				{
+					"name": "Update a report (JsonPatch) - Invalid",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{av_token}}",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{ \"op\": \"replace\", \"path\": \"/Code\", \"value\": \"Updated description using JsonPatch\" },\r\n\t{ \"op\": \"replace\", \"path\": \"/Purpose\", \"value\": \"EmailHeader\" }\r\n]"
+						},
+						"url": {
+							"raw": "{{ip}}:{{report-manager-port}}/reports/RPT001",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{report-manager-port}}",
+							"path": [
+								"reports",
+								"RPT001"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 11:19:24 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (India Standard Time)",
+							"httpOnly": false,
+							"domain": "localhost",
+							"path": "/",
+							"secure": false,
+							"value": "true",
+							"key": "render-complete"
+						}
+					],
+					"body": "{\"code\":400,\"message\":\"Errors in the patch submitted : 'Code' cannot be updated, \"}"
+				}
+			]
+		},
+		{
 			"name": "Delete a report",
 			"request": {
 				"method": "DELETE",

@@ -2,6 +2,7 @@ namespace UBS.ReportManager.Abstractions.Service
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.JsonPatch;
     using Model.Domain;
     using Model.Operational;
 
@@ -14,5 +15,6 @@ namespace UBS.ReportManager.Abstractions.Service
         Task<bool> SetReportActiveStatus(string idOrCode, bool activeStatus);
         Task<bool> DeleteReport(string idOrCode);
         Task<GeneratedJsReportData> GenerateReport(string id, string reportParams);
+        Task<bool> UpdateReport(string idOrCode, JsonPatchDocument<Report> reportPatch);
     }
 }
